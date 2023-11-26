@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# HITEC University Issue Tracking System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Project Overview
+  The HITEC University Issue Tracking System is a comprehensive solution designed to streamline the handling and resolution of various university-related issues. This system primarily focuses on efficiently managing degree clearance, complaints, lost and found, and exam queries, thus enhancing the overall experience for students, faculty, and administrative staff.
 
-Currently, two official plugins are available:
+# Features
+  *Degree Clearance:* Automates the process of submitting and processing degree clearance applications, including notifications and status updates.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  *Complaints Management:* A dedicated module for lodging and tracking complaints, offering transparency and timely resolutions.
 
-## Expanding the ESLint configuration
+  *Lost and Found:* A centralized system for reporting and claiming lost items, ensuring a higher recovery rate.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+  *Exam Queries:* Facilitates the submission and handling of exam-related queries, streamlining communication between students and the examination department.
 
-- Configure the top-level `parserOptions` property like this:
+  *User Authentication:* Secure login system for different user roles (students, faculty, administrative staff).
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+  *Responsive UI:* A user-friendly interface that is accessible on various devices.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+  *Real-time Notifications:* Keeps users informed about the status of their issues or queries.
+
+# Technologies Used
+
+  Frontend: React.js
+
+  Backend: Node.js with Express
+
+  Database: MongoDB
