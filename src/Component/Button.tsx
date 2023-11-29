@@ -28,7 +28,7 @@ const Button: React.FC<ButtonProps> = ({ text, onClick, size = "default" }) => {
   return (
     <button
       onClick={onClick}
-      className={`${baseStyle} ${sizeClass} rounded-full font-normal border border-solid hover:border hover:border-solid hover:border-gray-500  bg-black  `}
+      className={`${baseStyle} ${sizeClass} rounded-full font-normal border border-solid hover:border hover:border-solid hover:border-gray-500  bg-black hover:bg-opacity-50  `}
     >
       {text}
     </button>

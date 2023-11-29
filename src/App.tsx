@@ -1,7 +1,11 @@
+import NotFound404 from "./Container/NotFound404";
+
 function App() {
   return (
     <>
-      <div></div>
+      <div>
+        <NotFound404 />
+      </div>
       {/* <div>
         <Button
           text="Small"
