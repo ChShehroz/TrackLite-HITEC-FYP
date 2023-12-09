@@ -1,4 +1,4 @@
-import img1 from "../assets/Images/UniImage.png";
+import img1 from "../assets/Images/UniImage1.png";
 const NotFound404 = () => {
   return (
     <>
@@ -9,9 +9,10 @@ const NotFound404 = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: "full",
+          maxHeight: "full",
         }}
       >
-        <div className="text-center px-20 py-8 rounded-xl bg-white">
+        <div className="text-center px-20 py-8 rounded-xl bg-white shadow-inner">
           <p className="text-xl font-normal text-red-500">404</p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight text-[#343767] sm:text-5xl">
             Page not found
