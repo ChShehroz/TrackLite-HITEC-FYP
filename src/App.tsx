@@ -1,10 +1,10 @@
-import NotFound404 from "./Container/NotFound404/NotFound404";
-
+import GetStarted from "./Container/GetStarted/GetStarted";
 function App() {
   return (
     <>
       <div>
-        <NotFound404 />
+        <GetStarted />
+        {/* <NotFound404 /> */}
       </div>
       {/* <div>
         <Button

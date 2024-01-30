@@ -14,7 +14,7 @@ const NotFound404 = () => {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
-                className="rounded-full bg-black px-3.5 py-2.5 text-sm font-semibold border border-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-full bg-black px-3.5 py-2.5 text-sm font-semibold border border-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent"
               >
                 Go back home
               </a>
