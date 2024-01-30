@@ -1,4 +1,4 @@
-import NotFound404 from "./Container/NotFound404";
+import NotFound404 from "./Container/NotFound404/NotFound404";
 
 function App() {
   return (
