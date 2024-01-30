@@ -1,5 +1,3 @@
-import Style from "./NotFound.module.css";
-
 const NotFound404 = () => {
   return (
     <>
