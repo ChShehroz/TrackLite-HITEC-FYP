@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import GetStarted from "../Container/GetStarted/GetStarted";
 import SignUp from "../Container/SignUp/SignUp";
 import SignIn from "../Container/LogIn/LogIn";
+import Home from "../Container/Home/Home";
 
 const RoutesPage = () => {
   return (
@@ -9,6 +10,7 @@ const RoutesPage = () => {
       <Route path="/" element={<GetStarted />} />
       <Route path="/SignUp" element={<SignUp />} />
       <Route path="/LogIn" element={<SignIn />} />
+      <Route path="/Home" element={<Home />} />
     </Routes>
   );
 };

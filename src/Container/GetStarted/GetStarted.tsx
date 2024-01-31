@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import getStartedImg from "../../assets/Images/GetStarted.png";
-import Logo from "../../assets/Images/Logo-removebg.png";
+import Logo from "../../assets/Images/Logoremovebg.png";
 
 const GetStarted = () => {
   return (
