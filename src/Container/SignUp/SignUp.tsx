@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import DropDown from "../../Component/DropDown";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import React, { useState } from "react";
@@ -127,9 +128,11 @@ const SignUp = () => {
                 </button>
                 <p className="text-center text-sm mt-2">
                   Already a user?{" "}
-                  <a href="/login" className="text-blue-500 hover:underline">
-                    Login
-                  </a>
+                  <Link to={"/LogIn"}>
+                    <a className="text-blue-500 hover:underline cursor-pointer">
+                      Login
+                    </a>
+                  </Link>
                 </p>
               </form>
             </div>
