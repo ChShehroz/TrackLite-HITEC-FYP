@@ -1,9 +1,10 @@
-import GetStarted from "./Container/GetStarted/GetStarted";
+import SignUp from "./Container/SignUp/SignUp";
 function App() {
   return (
     <>
       <div>
-        <GetStarted />
+        <SignUp />
+        {/* <GetStarted /> */}
         {/* <NotFound404 /> */}
       </div>
       {/* <div>
