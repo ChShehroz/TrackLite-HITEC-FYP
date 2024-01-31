@@ -1,5 +1,6 @@
 import { useState } from "react";
 import getStartedImg from "../../assets/Images/GetStarted.png";
+import { Link } from "react-router-dom";
 
 interface FormState {
   email: string;
@@ -80,9 +81,11 @@ const LogIn = () => {
               </button>
               <p className="text-center text-sm mt-2">
                 Register?{" "}
-                <a className="text-blue-500 hover:underline cursor-pointer">
-                  SignUp
-                </a>
+                <Link to={"/SignUp"}>
+                  <a className="text-blue-500 hover:underline cursor-pointer">
+                    SignUp
+                  </a>
+                </Link>
               </p>
             </form>
           </div>
