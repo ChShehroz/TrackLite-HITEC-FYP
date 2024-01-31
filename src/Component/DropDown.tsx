@@ -30,7 +30,7 @@ export default function DropDown() {
           <div className="relative w-full">
             <Listbox.Button className="relative w-[100%] px-3 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]">
               <span className="flex items-center">
-                <span className="ml-3 block truncate">{selected.name}</span>
+                <span className="block truncate">{selected.name}</span>
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
                 <ChevronUpDownIcon

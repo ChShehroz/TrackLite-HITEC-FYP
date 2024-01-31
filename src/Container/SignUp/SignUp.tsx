@@ -78,7 +78,7 @@ const SignUp = () => {
                 <div className="mb-3 flex justify-between items-center gap-2">
                   <label
                     className="block text-gray-700 text-sm font-semibold"
-                    htmlFor="user type"
+                    htmlFor="department"
                   >
                     Department
                   </label>
