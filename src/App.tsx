@@ -3,7 +3,7 @@ import RoutesPage from "./Routes";
 function App() {
   return (
     <>
-      <RoutesPage />;
+      <RoutesPage />
     </>
   );
 }
