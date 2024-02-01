@@ -47,14 +47,14 @@ const NavBar = () => {
         </div>
         <div className="group inline-block relative">
           <div className="group mb-2 bg-black rounded-full transform transition-all duration-200 group-hover:scale-110">
-            <button className="flex items-center space-x-2 p-3 group-hover:px-4">
+            <button className="flex items-center space-x-2 p-3">
               <FontAwesomeIcon
                 icon={faUser}
                 className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
               />
             </button>
           </div>
-          <ul className="absolute right-2 text-base text-black hidden pt-1 group-hover:block w-48 transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
+          <ul className="absolute right-2 text-base text-black hidden pt-1 cursor-pointer group-hover:block w-48 transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
             <li>
               <a className="rounded-t text-black hover:text-yellow-50 bg-[#FFFCF1] hover:bg-black shadow-lg py-2 px-4 block whitespace-no-wrap transition-colors duration-200">
                 Change Password
