@@ -1,36 +1,38 @@
 import React from "react";
-import {
-  faGraduationCap,
-  faBinoculars,
-  faBookOpen,
-  faQuestionCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import img1 from "../../src/assets/Images/graduation (1).png";
+import img2 from "../../src/assets/Images/complaint.png";
+import img3 from "../../src/assets/Images/binoculars.png";
+import img4 from "../../src/assets/Images/image 3.png";
 
 interface ServiceCardProps {
-  icon: any;
+  img: any;
   title: string;
+  subTitle: string;
   description: string;
   buttonText: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
-  icon,
+  img,
   title,
+  subTitle,
   description,
   buttonText,
 }) => {
   return (
-    <div className="flex px-8 py-12 items-center bg-[#EBE1C4] rounded-2xl shadow-lg m-2">
-      <div className="px-4 bg-[#AED9E0] rounded-full m-4">
-        <FontAwesomeIcon icon={icon} className="text-3xl text-gray-700" />
-      </div>
-      <div className="flex-1">
-        <h3 className="text-xl font-semibold">{title}</h3>
-        <p className="text-sm text-gray-600">{description}</p>
-        <button className="mt-2 px-4 py-2 text-sm font-bold text-white bg-black rounded-full shadow-sm hover:bg-transparent hover:text-black border border-black transition-all">
-          {buttonText}
-        </button>
+    <div className="">
+      <div className="flex px-6 py-8 items-center bg-[#EBE1C4] rounded-2xl shadow-lg m-2">
+        <div className="p-6 bg-[#AED9E0] rounded-full m-4">
+          <img src={img} className="w-20 text-gray-700" />
+        </div>
+        <div className="flex-1">
+          <h3 className="text-2xl font-semibold">{title}</h3>
+          <p className="text-sm text-[#484848] font-normal mb-4">{subTitle}</p>
+          <p className="text-sm text-gray-600 mb-6">{description}</p>
+          <button className="mt-2 px-8 py-2 text-sm font-semibold text-white bg-black rounded-full shadow-sm hover:bg-transparent hover:text-black border border-gray-700 transition-all">
+            {buttonText}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -44,26 +46,30 @@ const CampusIssueDesk: React.FC = () => {
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <ServiceCard
-          icon={faGraduationCap}
+          img={img1}
           title="Degree Clearance"
+          subTitle="Your Graduation Gateway"
           description="Complete your academic chapter smoothly. Verify credits, finalize dues, and prepare for your ceremony, all in one place."
           buttonText="Start Here"
         />
         <ServiceCard
-          icon={faBinoculars}
+          img={img3}
           title="Loss and Found"
+          subTitle="Reclaim Your Items"
           description="Misplaced something on campus? Browse found items or report lost belongings for quick recovery."
           buttonText="Search & Report"
         />
         <ServiceCard
-          icon={faBookOpen}
+          img={img2}
           title="Complaints"
+          subTitle="We’re Listening"
           description="Encounter an issue? Let us know. Submit and track complaints easily for a swift resolution."
           buttonText="Report Now"
         />
         <ServiceCard
-          icon={faQuestionCircle}
+          img={img4}
           title="Exam Queries"
+          subTitle="Exam Assistance"
           description="Have questions about exams? Get clarifications and support for your exam-related queries here."
           buttonText="Inquire Here"
         />
