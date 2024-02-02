@@ -19,7 +19,7 @@ const MySlider: React.FC = () => {
   return (
     <Slider className={`${styles.slider} m-8`} {...settings}>
       <div className="bg-gradient-to-r from-[#CB97E7] to-[#f3a984] rounded-3xl w-full pt-1.5">
-        <div className="bg-gradient-to-t from-[#fbefc7] to-[#EACB68] px-12 py-8 rounded-t-xl rounded-b-3xl flex justify-between items-center space-x-4">
+        <div className="bg-gradient-to-t from-[#fbefc7] to-[#EACB68] px-12 py-6 rounded-t-xl rounded-b-3xl flex justify-between items-center space-x-4">
           <div className="flex">
             <div className="flex-1">
               <h2 className="text-4xl font-thin text-[#545454]">
@@ -47,7 +47,7 @@ const MySlider: React.FC = () => {
       </div>
 
       <div className="bg-gradient-to-r from-[#CB97E7] to-[#f3a984] rounded-3xl w-full pt-1.5">
-        <div className="bg-gradient-to-t from-[#fbefc7] to-[#EACB68] px-12 py-8 rounded-t-xl rounded-b-3xl flex justify-between items-center space-x-4">
+        <div className="bg-gradient-to-t from-[#fbefc7] to-[#EACB68] px-12 py-6 rounded-t-xl rounded-b-3xl flex justify-between items-center space-x-4">
           <div className="flex">
             <div className="flex-1">
               <h2 className="text-4xl font-thin text-[#545454]">

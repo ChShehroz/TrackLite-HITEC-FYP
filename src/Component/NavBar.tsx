@@ -54,7 +54,7 @@ const NavBar = () => {
               />
             </button>
           </div>
-          <ul className="absolute right-2 text-base text-black hidden pt-1 cursor-pointer group-hover:block w-48 transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
+          <ul className="absolute z-10 right-2 text-base text-black hidden pt-1 cursor-pointer group-hover:block w-48 transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
             <li>
               <a className="rounded-t text-black hover:text-yellow-50 bg-[#FFFCF1] hover:bg-black shadow-lg py-2 px-4 block whitespace-no-wrap transition-colors duration-200">
                 Change Password
