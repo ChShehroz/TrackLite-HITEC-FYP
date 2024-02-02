@@ -20,9 +20,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   buttonText,
 }) => {
   return (
-    <div className="">
-      <div className="flex px-6 py-8 items-center bg-[#EBE1C4] rounded-2xl shadow-lg m-2">
-        <div className="p-6 bg-[#AED9E0] rounded-full m-4">
+    <div className="bg-gradient-to-l from-[#c39d4d] to-[#FFC344] pt-1 rounded-2xl">
+      <div className="flex px-4 py-8 items-center bg-[#EBE1C4] rounded-2xl shadow-lg">
+        <div className="p-6 bg-gradient-to-b from-[#FFC344] border border-white shadow-lg rounded-full m-4">
           <img src={img} className="w-20 text-gray-700" />
         </div>
         <div className="flex-1">
@@ -44,7 +44,7 @@ const CampusIssueDesk: React.FC = () => {
       <h2 className="text-3xl font-bold text-[#555555] text-center mb-6">
         Campus Issue Desk
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <ServiceCard
           img={img1}
           title="Degree Clearance"

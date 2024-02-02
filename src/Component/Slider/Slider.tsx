@@ -31,7 +31,7 @@ const MySlider: React.FC = () => {
               <p className="mb-4 text-lg font-medium">
                 Streamlined Degree Clearance Process
               </p>
-              <p className="mb-3 font-light from-stone-600">
+              <p className="mb-3 font-light from-stone-600 mr-3">
                 Navigating through your degree clearance is now simpler than
                 ever. With TrackLite HITEC, you're just a click away from
                 beginning the final steps of your academic journey. Secure your
@@ -42,7 +42,7 @@ const MySlider: React.FC = () => {
                 Approve Your Degree
               </button>
             </div>
-            <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] to-[#FCF9E0] bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
+            <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] to-[#FCF9E0] shadow-lg bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
               <img src={Degree} alt="degree" className="w-32" />
             </div>
           </div>
@@ -69,7 +69,7 @@ const MySlider: React.FC = () => {
                 Submit a Complaint
               </button>
             </div>
-            <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] to-[#FCF9E0] bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
+            <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] shadow-lg to-[#FCF9E0] bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
               <img src={complain} alt="degree" className="w-32" />
             </div>
           </div>
