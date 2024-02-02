@@ -1,0 +1,18 @@
+:global(.slick-dots li button:before) {
+  color: #000 !important;
+}
+
+:global(.slick-prev:before),
+:global(.slick-next:before) {
+  color: #000 !important;
+}
+
+:global(.slick-prev) {
+  left: 10px !important;
+  z-index: 1 !important;
+}
+
+:global(.slick-next) {
+  right: 10px !important;
+  z-index: 1 !important;
+}
