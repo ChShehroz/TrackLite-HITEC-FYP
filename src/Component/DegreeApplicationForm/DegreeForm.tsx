@@ -101,7 +101,7 @@ const DegreeForm: React.FC = () => {
                   name="rollNo"
                   value={formState.rollNo}
                   onChange={handleChange}
-                  placeholder="Enter your registration no"
+                  placeholder="Enter your registration number"
                   className={formInputStyle}
                 />
               </div>
@@ -134,7 +134,7 @@ const DegreeForm: React.FC = () => {
                 name="email"
                 value={formState.email}
                 onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="Enter your email address"
                 className={formInputStyle}
               />
             </div>
@@ -151,7 +151,7 @@ const DegreeForm: React.FC = () => {
                   name="phone"
                   value={formState.phone}
                   onChange={handleChange}
-                  placeholder="Phone No"
+                  placeholder="Enter your contact number"
                   className={formInputStyle}
                 />
               </div>
