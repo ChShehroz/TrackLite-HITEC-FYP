@@ -101,7 +101,7 @@ const DegreeForm: React.FC = () => {
                   name="rollNo"
                   value={formState.rollNo}
                   onChange={handleChange}
-                  placeholder="Enter your registration number"
+                  placeholder="Enter your registration no"
                   className={formInputStyle}
                 />
               </div>
@@ -127,7 +127,7 @@ const DegreeForm: React.FC = () => {
                 className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                 htmlFor="email"
               >
-                Email
+                Email address
               </label>
               <input
                 type="email"
@@ -172,15 +172,23 @@ const DegreeForm: React.FC = () => {
                 />
               </div>
             </div>
+            <div className="pb-6">
+              <label
+                className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                htmlFor="postalAddress"
+              >
+                Postal address
+              </label>
+              <input
+                type="text"
+                name="postalAddress"
+                value={formState.postalAddress}
+                onChange={handleChange}
+                placeholder="Enter your postal address"
+                className={formInputStyle}
+              />
+            </div>
 
-            <input
-              type="text"
-              name="postalAddress"
-              value={formState.postalAddress}
-              onChange={handleChange}
-              placeholder="Postal Address"
-              className={formInputStyle}
-            />
             <div className="flex justify-end gap-3 mt-6">
               <button type="button" className={btnSecondaryStyle}>
                 Cancel
