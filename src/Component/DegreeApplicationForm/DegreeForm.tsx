@@ -52,62 +52,127 @@ const DegreeForm: React.FC = () => {
             graduation.
           </p>
           <form className="space-y-4" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="studentName"
-              value={formState.studentName}
-              onChange={handleChange}
-              placeholder="Student's Name"
-              className={formInputStyle}
-            />
-            <input
-              type="text"
-              name="fatherName"
-              value={formState.fatherName}
-              onChange={handleChange}
-              placeholder="Father's Name"
-              className={formInputStyle}
-            />
-            <input
-              type="text"
-              name="rollNo"
-              value={formState.rollNo}
-              onChange={handleChange}
-              placeholder="Roll No"
-              className={formInputStyle}
-            />
-            <input
-              type="text"
-              name="semester"
-              value={formState.semester}
-              onChange={handleChange}
-              placeholder="Semester"
-              className={formInputStyle}
-            />
-            <input
-              type="email"
-              name="email"
-              value={formState.email}
-              onChange={handleChange}
-              placeholder="Email"
-              className={formInputStyle}
-            />
-            <input
-              type="tel"
-              name="phone"
-              value={formState.phone}
-              onChange={handleChange}
-              placeholder="Phone No"
-              className={formInputStyle}
-            />
-            <input
-              type="text"
-              name="reasonForLeaving"
-              value={formState.reasonForLeaving}
-              onChange={handleChange}
-              placeholder="Reason for Leaving"
-              className={formInputStyle}
-            />
+            <div className="flex flex-wrap -mx-3 mb-2">
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                  htmlFor="studentName"
+                >
+                  Student Name
+                </label>
+                <input
+                  id="studentName"
+                  type="text"
+                  placeholder="Enter student's name"
+                  name="studentName"
+                  value={formState.studentName}
+                  onChange={handleChange}
+                  className={formInputStyle}
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                  htmlFor="fatherName"
+                >
+                  Father Name
+                </label>
+                <input
+                  id="fatherName"
+                  type="text"
+                  placeholder="Enter father's name"
+                  name="fatherName"
+                  value={formState.fatherName}
+                  onChange={handleChange}
+                  className={formInputStyle}
+                />
+              </div>
+            </div>
+            <div className="flex flex-wrap -mx-3 mb-2">
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                  htmlFor="rollNo"
+                >
+                  Roll No
+                </label>
+                <input
+                  type="text"
+                  name="rollNo"
+                  value={formState.rollNo}
+                  onChange={handleChange}
+                  placeholder="Enter your registration number"
+                  className={formInputStyle}
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                  htmlFor="semester"
+                >
+                  Semester
+                </label>
+                <input
+                  type="text"
+                  name="semester"
+                  value={formState.semester}
+                  onChange={handleChange}
+                  placeholder="Semester"
+                  className={formInputStyle}
+                />
+              </div>
+            </div>
+            <div className="w-2/3">
+              <label
+                className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formState.email}
+                onChange={handleChange}
+                placeholder="Enter your email"
+                className={formInputStyle}
+              />
+            </div>
+            <div className="flex flex-wrap -mx-3 mb-2">
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                  htmlFor="phone"
+                >
+                  Phone No
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formState.phone}
+                  onChange={handleChange}
+                  placeholder="Phone No"
+                  className={formInputStyle}
+                />
+              </div>
+              <div className="w-full md:w-1/2 px-3">
+                <label
+                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                  htmlFor="reasonForLeaving"
+                >
+                  Reason for Leaving
+                </label>
+                <input
+                  type="text"
+                  name="reasonForLeaving"
+                  value={formState.reasonForLeaving}
+                  onChange={handleChange}
+                  placeholder="Reason for Leaving"
+                  className={formInputStyle}
+                />
+              </div>
+            </div>
+
             <input
               type="text"
               name="postalAddress"
