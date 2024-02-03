@@ -40,11 +40,11 @@ const DegreeForm: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-3xl font-semibold my-10">
+      <h2 className="text-3xl text-[#545454] font-semibold my-10">
         Degree Clearance Application
       </h2>
       <div className="bg-[#CB97E7] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
+        <div className="bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
           <p className="text-sm text-center mx-24 mb-6">
             Welcome to the Degree Clearance application portal. Here, you can
             submit your request for degree clearance, ensuring that all academic

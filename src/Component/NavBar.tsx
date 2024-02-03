@@ -6,6 +6,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import Logo from "../assets/Images/Logoremovebg.png";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -13,15 +14,18 @@ const NavBar = () => {
       <img src={Logo} alt="Logo" className="h-11" />
       <div className="space-x-4 flex items-center">
         <div className="group inline-block relative">
-          <a className="flex items-center space-x-2 px-4 py-2 cursor-pointer bg-black text-white rounded-full shadow-md transform transition-all duration-200 group-hover:scale-110 group-hover:px-6">
-            <FontAwesomeIcon
-              icon={faHouseChimney}
-              className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
-            />
-            <span className="text-sm opacity-100 transition-opacity duration-200">
-              Home
-            </span>
-          </a>
+          <Link to={"/Home"}>
+            <a className="flex items-center space-x-2 px-4 py-2 cursor-pointer bg-black text-white rounded-full shadow-md transform transition-all duration-200 group-hover:scale-110 group-hover:px-6">
+              <FontAwesomeIcon
+                icon={faHouseChimney}
+                className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
+              />
+
+              <span className="text-sm opacity-100 transition-opacity duration-200">
+                Home
+              </span>
+            </a>
+          </Link>
         </div>
         <div className="group inline-block relative">
           <a className="flex items-center space-x-2 px-4 py-2 cursor-pointer bg-black text-white rounded-full shadow-md transform transition-all duration-200 group-hover:scale-110 group-hover:px-6">

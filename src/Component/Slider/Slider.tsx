@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "../Slider/Slider.module.css";
 import Degree from "../../assets/Images/graduation.png";
 import complain from "../../assets/Images/complain.png";
+import { Link } from "react-router-dom";
 
 const MySlider: React.FC = () => {
   const settings: Settings = {
@@ -38,9 +39,11 @@ const MySlider: React.FC = () => {
                 transcripts, finalize records, and celebrate your
                 accomplishments with our comprehensive online clearance system.
               </p>
-              <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 transition-colors duration-200">
-                Approve Your Degree
-              </button>
+              <Link to={"/DegreeApplication"}>
+                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 transition-colors duration-200">
+                  Approve Your Degree
+                </button>
+              </Link>
             </div>
             <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] to-[#FCF9E0] shadow-lg bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
               <img src={Degree} alt="degree" className="w-32" />
@@ -65,9 +68,11 @@ const MySlider: React.FC = () => {
                 be promptly reviewed by our dedicated team. Please use the form
                 to report and submit your complaint for swift resolution.
               </p>
-              <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800">
-                Submit a Complaint
-              </button>
+              <Link to={""}>
+                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800">
+                  Submit a Complaint
+                </button>
+              </Link>
             </div>
             <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] shadow-lg to-[#FCF9E0] bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
               <img src={complain} alt="degree" className="w-32" />
