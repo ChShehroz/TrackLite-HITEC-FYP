@@ -4,14 +4,21 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const schema = z.object({
-  studentName: z.string(),
-  fatherName: z.string(),
-  rollNo: z.string(),
-  semester: z.string(),
-  email: z.string(),
-  phone: z.string(),
-  reasonForLeaving: z.string(),
-  postalAddress: z.string(),
+  studentName: z.string().min(1, "Student's name is required."),
+  fatherName: z.string().min(1, "Father's name is required."),
+  rollNo: z.string().min(1, "Roll number is required."),
+  semester: z.string().min(1, "Semester is required."),
+  email: z
+    .string()
+    .email("Invalid email address.")
+    .min(1, "Email is required."),
+  phone: z
+    .string()
+    .min(1, { message: "Phone number is required" })
+    .regex(/^\d{11}$/, { message: "Phone number must be 11 digits" }),
+
+  reasonForLeaving: z.string().min(1, "Reason for leaving is required."),
+  postalAddress: z.string().min(1, "Postal address is required."),
 });
 
 type DegreeFormData = z.infer<typeof schema>;
@@ -21,7 +28,12 @@ interface Props {
 }
 
 const DegreeForm = ({}: Props) => {
-  const { register, handleSubmit, reset } = useForm<DegreeFormData>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<DegreeFormData>({
     resolver: zodResolver(schema),
   });
 
@@ -46,6 +58,9 @@ const DegreeForm = ({}: Props) => {
             and administrative requirements are fulfilled before your
             graduation.
           </p>
+          <div className="flex flex-col items-center justify-center mt-4 mb-8">
+            <div className="w-[90%] border-t border-gray-400 mx-auto"></div>
+          </div>
           <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -62,6 +77,11 @@ const DegreeForm = ({}: Props) => {
                   placeholder="Enter the student's name"
                   className={formInputStyle}
                 />
+                {errors.studentName && (
+                  <span className="text-red-500 text-xs">
+                    {errors.studentName.message}
+                  </span>
+                )}
               </div>
               <div className="w-full md:w-1/2 px-3">
                 <label
@@ -77,6 +97,11 @@ const DegreeForm = ({}: Props) => {
                   placeholder="Enter the father's name"
                   className={formInputStyle}
                 />
+                {errors.fatherName && (
+                  <span className="text-red-500 text-xs">
+                    {errors.fatherName.message}
+                  </span>
+                )}
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-2">
@@ -94,6 +119,11 @@ const DegreeForm = ({}: Props) => {
                   placeholder="Enter your roll number"
                   className={formInputStyle}
                 />
+                {errors.rollNo && (
+                  <span className="text-red-500 text-xs">
+                    {errors.rollNo.message}
+                  </span>
+                )}
               </div>
               <div className="w-full md:w-1/2 px-3">
                 <label
@@ -109,6 +139,11 @@ const DegreeForm = ({}: Props) => {
                   placeholder="Enter the current semester"
                   className={formInputStyle}
                 />
+                {errors.semester && (
+                  <span className="text-red-500 text-xs">
+                    {errors.semester.message}
+                  </span>
+                )}
               </div>
             </div>
             <div className="w-2/3">
@@ -125,6 +160,11 @@ const DegreeForm = ({}: Props) => {
                 placeholder="Enter your email address"
                 className={formInputStyle}
               />
+              {errors.email && (
+                <span className="text-red-500 text-xs">
+                  {errors.email.message}
+                </span>
+              )}
             </div>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -141,6 +181,11 @@ const DegreeForm = ({}: Props) => {
                   placeholder="Enter your phone number"
                   className={formInputStyle}
                 />
+                {errors.phone && (
+                  <span className="text-red-500 text-xs">
+                    {errors.phone.message}
+                  </span>
+                )}
               </div>
               <div className="w-full md:w-1/2 px-3">
                 <label
@@ -156,6 +201,11 @@ const DegreeForm = ({}: Props) => {
                   placeholder="Specify the reason for leaving"
                   className={formInputStyle}
                 />
+                {errors.reasonForLeaving && (
+                  <span className="text-red-500 text-xs">
+                    {errors.reasonForLeaving.message}
+                  </span>
+                )}
               </div>
             </div>
             <div className="pb-6">
@@ -172,6 +222,11 @@ const DegreeForm = ({}: Props) => {
                 placeholder="Enter your postal address"
                 className={formInputStyle}
               />
+              {errors.postalAddress && (
+                <span className="text-red-500 text-xs">
+                  {errors.postalAddress.message}
+                </span>
+              )}
             </div>
 
             <div className="flex justify-end gap-3 mt-6">
