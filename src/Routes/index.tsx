@@ -5,6 +5,7 @@ import SignIn from "../Container/LogIn/LogIn";
 import Home from "../Container/Home/Home";
 import DegreeClearance from "../Container/DegreeClearance/DegreeClearance";
 import LostFoundReport from "../Container/LostFoundReport/LostFoundReport";
+import Complaint from "../Container/Complaints/Complaint";
 
 const RoutesPage = () => {
   return (
@@ -15,6 +16,7 @@ const RoutesPage = () => {
       <Route path="/Home" element={<Home />} />
       <Route path="/DegreeApplication" element={<DegreeClearance />} />
       <Route path="/LostFoundReport" element={<LostFoundReport />} />
+      <Route path="/Complaints" element={<Complaint />} />
     </Routes>
   );
 };

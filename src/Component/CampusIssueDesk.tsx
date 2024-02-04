@@ -23,7 +23,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   routePath,
 }) => {
   return (
-    <div className="bg-gradient-to-l from-[#c39d4d] to-[#FFC344] pt-1 rounded-2xl">
+    <div className="bg-gradient-to-l from-[#c39d4d] to-[#FFC344] pt-1 rounded-3xl">
       <div className="flex px-4 py-8 items-center bg-[#EBE1C4] rounded-2xl shadow-lg">
         <div className="p-6 bg-gradient-to-b from-[#FFC344] border border-white shadow-lg rounded-full m-4">
           <img src={img} className="w-20 text-gray-700" />
@@ -72,7 +72,7 @@ const CampusIssueDesk: React.FC = () => {
           subTitle="We’re Listening"
           description="Encounter an issue? Let us know. Submit and track complaints easily for a swift resolution."
           buttonText="Report Now"
-          routePath=""
+          routePath="/Complaints"
         />
         <ServiceCard
           img={img4}

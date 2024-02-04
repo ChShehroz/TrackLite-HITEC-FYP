@@ -68,7 +68,7 @@ const MySlider: React.FC = () => {
                 be promptly reviewed by our dedicated team. Please use the form
                 to report and submit your complaint for swift resolution.
               </p>
-              <Link to={""}>
+              <Link to={"/Complaints"}>
                 <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800">
                   Submit a Complaint
                 </button>

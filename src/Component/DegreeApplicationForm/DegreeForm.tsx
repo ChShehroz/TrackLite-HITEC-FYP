@@ -10,8 +10,8 @@ const schema = z.object({
   semester: z.string().min(1, "Semester is required."),
   email: z
     .string()
-    .email("Invalid email address.")
-    .min(1, "Email is required."),
+    .min(1, "Email is required.")
+    .email("Invalid email address."),
   phone: z
     .string()
     .min(1, { message: "Phone number is required." })
