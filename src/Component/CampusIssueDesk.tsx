@@ -64,7 +64,7 @@ const CampusIssueDesk: React.FC = () => {
           subTitle="Reclaim Your Items"
           description="Misplaced something on campus? Browse found items or report lost belongings for quick recovery."
           buttonText="Search & Report"
-          routePath=""
+          routePath="/LostFoundReport"
         />
         <ServiceCard
           img={img2}

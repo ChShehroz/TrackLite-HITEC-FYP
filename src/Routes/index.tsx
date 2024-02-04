@@ -4,6 +4,8 @@ import SignUp from "../Container/SignUp/SignUp";
 import SignIn from "../Container/LogIn/LogIn";
 import Home from "../Container/Home/Home";
 import DegreeClearance from "../Container/DegreeClearance/DegreeClearance";
+import LostFoundForm from "../Component/LostFoundForm/LostFoundForm";
+import LostFoundReport from "../Container/LostFoundReport/LostFoundReport";
 
 const RoutesPage = () => {
   return (
@@ -13,6 +15,7 @@ const RoutesPage = () => {
       <Route path="/LogIn" element={<SignIn />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/DegreeApplication" element={<DegreeClearance />} />
+      <Route path="/LostFoundReport" element={<LostFoundReport />} />
     </Routes>
   );
 };
