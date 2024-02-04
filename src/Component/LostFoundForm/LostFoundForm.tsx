@@ -46,9 +46,9 @@ const LostFoundForm = () => {
       <h2 className="text-3xl text-[#545454] font-semibold my-10">
         Lost and Found Reporting
       </h2>
-      <div className="bg-[#CB97E7] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
+      <div className="bg-[#ff607d] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
         <div className="bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
-          <p className="text-sm text-center mx-24 mb-6">
+          <p className="text-sm text-center mx-28 mb-4">
             Lost something on campus? We're here to help. Use this form to
             report any items you've lost or found on campus. Our Lost and Found
             team will assist in reuniting items with their rightful owners.
@@ -211,7 +211,7 @@ const LostFoundForm = () => {
                       <p className="pl-1">or drag and drop</p>
                     </div>
                     <p className="text-xs leading-5 text-gray-800">
-                      PNG, JPG, GIF up to 10MB
+                      PNG, JPG up to 10MB
                     </p>
                   </div>
                 </div>
@@ -244,7 +244,7 @@ const LostFoundForm = () => {
                 </button>
               </Link>
               <button type="submit" className={btnPrimaryStyle}>
-                Submit Application
+                Report Item
               </button>
             </div>
           </form>
