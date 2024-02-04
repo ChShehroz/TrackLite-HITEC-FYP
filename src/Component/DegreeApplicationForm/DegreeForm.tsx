@@ -14,8 +14,8 @@ const schema = z.object({
     .min(1, "Email is required."),
   phone: z
     .string()
-    .min(1, { message: "Phone number is required" })
-    .regex(/^\d{11}$/, { message: "Phone number must be 11 digits" }),
+    .min(1, { message: "Phone number is required." })
+    .regex(/^\d{11}$/, { message: "Phone number must be 11 digits." }),
 
   reasonForLeaving: z.string().min(1, "Reason for leaving is required."),
   postalAddress: z.string().min(1, "Postal address is required."),

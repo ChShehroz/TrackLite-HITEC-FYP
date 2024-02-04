@@ -11,7 +11,10 @@ const schema = z.object({
     .string()
     .email("Invalid email address.")
     .min(1, "Email is required."),
-  phone: z.string().regex(/^\d{11}$/, "Phone number must be 11 digits"),
+  phone: z
+    .string()
+    .min(1, { message: "Phone number is required." })
+    .regex(/^\d{11}$/, { message: "Phone number must be 11 digits." }),
   location: z.string().min(1, "Location is required."),
   description: z.string().min(1, "Description is required."),
   dateAndTime: z.string().min(1, "Date and time are required."),
@@ -164,6 +167,11 @@ const LostFoundForm = () => {
                   className={formInputStyle}
                   placeholder="Where was the item last seen or found?"
                 />
+                {errors.location && (
+                  <span className="text-red-500 text-xs">
+                    {errors.location.message}
+                  </span>
+                )}
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
                 <label
@@ -179,6 +187,11 @@ const LostFoundForm = () => {
                   className={formInputStyle}
                   placeholder="Provide a detailed description of the item"
                 />
+                {errors.description && (
+                  <span className="text-red-500 text-xs">
+                    {errors.description.message}
+                  </span>
+                )}
               </div>
             </div>
             <div className="flex space-x-4">
@@ -230,6 +243,11 @@ const LostFoundForm = () => {
                   className={formInputStyle}
                   placeholder="Date and Time"
                 />
+                {errors.dateAndTime && (
+                  <span className="text-red-500 text-xs">
+                    {errors.dateAndTime.message}
+                  </span>
+                )}
               </div>
             </div>
 
