@@ -1,42 +1,37 @@
-import React, { useState } from "react";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
-interface FormState {
-  studentName: string;
-  fatherName: string;
-  rollNo: string;
-  semester: string;
-  email: string;
-  phone: string;
-  reasonForLeaving: string;
-  postalAddress: string;
+const schema = z.object({
+  studentName: z.string(),
+  fatherName: z.string(),
+  rollNo: z.string(),
+  semester: z.string(),
+  email: z.string(),
+  phone: z.string(),
+  reasonForLeaving: z.string(),
+  postalAddress: z.string(),
+});
+
+type DegreeFormData = z.infer<typeof schema>;
+
+interface Props {
+  onSubmit: (data: DegreeFormData) => void;
 }
 
-const DegreeForm: React.FC = () => {
+const DegreeForm = ({}: Props) => {
+  const { register, handleSubmit, reset } = useForm<DegreeFormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const submitData = (data: DegreeFormData) => {
+    console.log(data);
+    reset();
+  };
   const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
   const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
-
-  const [formState, setFormState] = useState<FormState>({
-    studentName: "",
-    fatherName: "",
-    rollNo: "",
-    semester: "",
-    email: "",
-    phone: "",
-    reasonForLeaving: "",
-    postalAddress: "",
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Submit form logic goes here
-    console.log(formState);
-  };
 
   return (
     <div className="flex flex-col items-center">
@@ -51,7 +46,7 @@ const DegreeForm: React.FC = () => {
             and administrative requirements are fulfilled before your
             graduation.
           </p>
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                 <label
@@ -61,12 +56,10 @@ const DegreeForm: React.FC = () => {
                   Student's Name
                 </label>
                 <input
+                  {...register("studentName")}
                   id="studentName"
                   type="text"
                   placeholder="Enter the student's name"
-                  name="studentName"
-                  value={formState.studentName}
-                  onChange={handleChange}
                   className={formInputStyle}
                 />
               </div>
@@ -78,12 +71,10 @@ const DegreeForm: React.FC = () => {
                   Father's Name
                 </label>
                 <input
+                  {...register("fatherName")}
                   id="fatherName"
                   type="text"
                   placeholder="Enter the father's name"
-                  name="fatherName"
-                  value={formState.fatherName}
-                  onChange={handleChange}
                   className={formInputStyle}
                 />
               </div>
@@ -97,10 +88,9 @@ const DegreeForm: React.FC = () => {
                   Roll Number
                 </label>
                 <input
+                  {...register("rollNo")}
                   type="text"
-                  name="rollNo"
-                  value={formState.rollNo}
-                  onChange={handleChange}
+                  id="rollNo"
                   placeholder="Enter your roll number"
                   className={formInputStyle}
                 />
@@ -113,10 +103,9 @@ const DegreeForm: React.FC = () => {
                   Semester
                 </label>
                 <input
+                  {...register("semester")}
                   type="text"
-                  name="semester"
-                  value={formState.semester}
-                  onChange={handleChange}
+                  id="semester"
                   placeholder="Enter the current semester"
                   className={formInputStyle}
                 />
@@ -130,10 +119,9 @@ const DegreeForm: React.FC = () => {
                 Email Address
               </label>
               <input
+                {...register("email")}
                 type="email"
-                name="email"
-                value={formState.email}
-                onChange={handleChange}
+                id="email"
                 placeholder="Enter your email address"
                 className={formInputStyle}
               />
@@ -147,10 +135,9 @@ const DegreeForm: React.FC = () => {
                   Phone Number
                 </label>
                 <input
+                  {...register("phone")}
                   type="tel"
-                  name="phone"
-                  value={formState.phone}
-                  onChange={handleChange}
+                  id="phone"
                   placeholder="Enter your phone number"
                   className={formInputStyle}
                 />
@@ -163,10 +150,9 @@ const DegreeForm: React.FC = () => {
                   Reason for Leaving
                 </label>
                 <input
+                  {...register("reasonForLeaving")}
                   type="text"
-                  name="reasonForLeaving"
-                  value={formState.reasonForLeaving}
-                  onChange={handleChange}
+                  id="reasonForLeaving"
                   placeholder="Specify the reason for leaving"
                   className={formInputStyle}
                 />
@@ -180,19 +166,24 @@ const DegreeForm: React.FC = () => {
                 Postal Address
               </label>
               <input
+                {...register("postalAddress")}
                 type="text"
-                name="postalAddress"
-                value={formState.postalAddress}
-                onChange={handleChange}
+                id="postalAddress"
                 placeholder="Enter your postal address"
                 className={formInputStyle}
               />
             </div>
 
             <div className="flex justify-end gap-3 mt-6">
-              <button type="button" className={btnSecondaryStyle}>
-                Cancel
-              </button>
+              <Link to={"/Home"}>
+                <button
+                  type="button"
+                  className={btnSecondaryStyle}
+                  onClick={() => reset()}
+                >
+                  Cancel
+                </button>
+              </Link>
               <button type="submit" className={btnPrimaryStyle}>
                 Submit Application
               </button>
