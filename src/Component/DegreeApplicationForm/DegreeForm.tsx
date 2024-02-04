@@ -58,12 +58,12 @@ const DegreeForm: React.FC = () => {
                   className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                   htmlFor="studentName"
                 >
-                  Student Name
+                  Student's Name
                 </label>
                 <input
                   id="studentName"
                   type="text"
-                  placeholder="Enter student's name"
+                  placeholder="Enter the student's name"
                   name="studentName"
                   value={formState.studentName}
                   onChange={handleChange}
@@ -75,12 +75,12 @@ const DegreeForm: React.FC = () => {
                   className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                   htmlFor="fatherName"
                 >
-                  Father Name
+                  Father's Name
                 </label>
                 <input
                   id="fatherName"
                   type="text"
-                  placeholder="Enter father's name"
+                  placeholder="Enter the father's name"
                   name="fatherName"
                   value={formState.fatherName}
                   onChange={handleChange}
@@ -94,14 +94,14 @@ const DegreeForm: React.FC = () => {
                   className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                   htmlFor="rollNo"
                 >
-                  Roll No
+                  Roll Number
                 </label>
                 <input
                   type="text"
                   name="rollNo"
                   value={formState.rollNo}
                   onChange={handleChange}
-                  placeholder="Enter your registration number"
+                  placeholder="Enter your roll number"
                   className={formInputStyle}
                 />
               </div>
@@ -117,7 +117,7 @@ const DegreeForm: React.FC = () => {
                   name="semester"
                   value={formState.semester}
                   onChange={handleChange}
-                  placeholder="Semester"
+                  placeholder="Enter the current semester"
                   className={formInputStyle}
                 />
               </div>
@@ -127,7 +127,7 @@ const DegreeForm: React.FC = () => {
                 className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                 htmlFor="email"
               >
-                Email address
+                Email Address
               </label>
               <input
                 type="email"
@@ -144,14 +144,14 @@ const DegreeForm: React.FC = () => {
                   className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                   htmlFor="phone"
                 >
-                  Phone No
+                  Phone Number
                 </label>
                 <input
                   type="tel"
                   name="phone"
                   value={formState.phone}
                   onChange={handleChange}
-                  placeholder="Enter your contact number"
+                  placeholder="Enter your phone number"
                   className={formInputStyle}
                 />
               </div>
@@ -167,7 +167,7 @@ const DegreeForm: React.FC = () => {
                   name="reasonForLeaving"
                   value={formState.reasonForLeaving}
                   onChange={handleChange}
-                  placeholder="Reason for Leaving"
+                  placeholder="Specify the reason for leaving"
                   className={formInputStyle}
                 />
               </div>
@@ -177,7 +177,7 @@ const DegreeForm: React.FC = () => {
                 className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                 htmlFor="postalAddress"
               >
-                Postal address
+                Postal Address
               </label>
               <input
                 type="text"
