@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const schema = z.object({
-  qureyType: z.enum(["Apply for 'I' Grade", "Exam Rechecking"]),
+  queryType: z.enum(["Apply for 'I' Grade", "Request Exam Recheck"]),
   studentName: z.string().min(1, "Student's name is required."),
   rollNo: z.string().min(1, "Roll number is required."),
   email: z
@@ -70,13 +70,13 @@ const ExamQuriesForm = ({}: Props) => {
             <div className="flex items-center mb-4">
               <p className="font-semibold mx-4">Type of Query</p>
               <Controller
-                name="qureyType"
+                name="queryType"
                 control={control}
                 render={({ field }) => (
                   <div className="flex items-center space-x-4">
                     <label className="flex items-center space-x-2">
                       <input
-                        {...register("qureyType")}
+                        {...register("queryType")}
                         type="radio"
                         value="Apply for 'I' Grade"
                         checked={field.value === "Apply for 'I' Grade"}
@@ -88,14 +88,14 @@ const ExamQuriesForm = ({}: Props) => {
                     </label>
                     <label className="flex items-center space-x-2">
                       <input
-                        {...register("qureyType")}
+                        {...register("queryType")}
                         type="radio"
-                        value="Exam Rechecking"
-                        checked={field.value === "Exam Rechecking"}
+                        value="Request Exam Recheck"
+                        checked={field.value === "Request Exam Recheck"}
                         className="form-radio h-5 w-5 text-blue-600 border-gray-300"
                       />
                       <span className="text-sm font-medium">
-                        Exam Rechecking
+                        Request Exam Recheck
                       </span>
                     </label>
                   </div>
@@ -156,7 +156,7 @@ const ExamQuriesForm = ({}: Props) => {
                   {...register("courseName")}
                   id="courseName"
                   className={formInputStyle}
-                  placeholder="Where was the item last seen or found?"
+                  placeholder="Enter the course name"
                 />
                 {errors.courseName && (
                   <span className="text-red-500 text-xs">
@@ -176,7 +176,7 @@ const ExamQuriesForm = ({}: Props) => {
                   type="text"
                   {...register("courseCode")}
                   className={formInputStyle}
-                  placeholder="Provide a detailed description of the item"
+                  placeholder="Enter the course code"
                 />
                 {errors.courseCode && (
                   <span className="text-red-500 text-xs">
@@ -234,7 +234,7 @@ const ExamQuriesForm = ({}: Props) => {
                   className="block text-gray-700 text-sm font-medium ml-4 mb-2"
                   htmlFor="reason"
                 >
-                  Detailed Reason/Concern
+                  Detailed Reason
                 </label>
                 <textarea
                   {...register("reason")}
