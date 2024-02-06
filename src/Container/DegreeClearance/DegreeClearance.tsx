@@ -3,23 +3,24 @@ import Footer from "../../Component/Footer";
 import NavBar from "../../Component/NavBar";
 
 const DegreeClearance = () => {
+  const handleSubmit = (data: {
+    phone: string;
+    studentName: string;
+    fatherName: string;
+    rollNo: string;
+    semester: string;
+    email: string;
+    reasonForLeaving: string;
+    postalAddress: string;
+  }) => {
+    // Perform some action with the form data
+    console.log(data);
+  };
+
   return (
     <>
       <NavBar />
-      <DegreeForm
-        onSubmit={function (_data: {
-          phone: string;
-          studentName: string;
-          fatherName: string;
-          rollNo: string;
-          semester: string;
-          email: string;
-          reasonForLeaving: string;
-          postalAddress: string;
-        }): void {
-          throw new Error("Function not implemented.");
-        }}
-      />
+      <DegreeForm onSubmit={handleSubmit} />
       <Footer />
     </>
   );
