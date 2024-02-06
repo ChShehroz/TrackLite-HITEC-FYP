@@ -14,28 +14,16 @@ const Footer = () => {
         <div className="flex justify-between items-center px-10 w-full">
           <img src={Logo} alt="Logo" className="h-9 mr-2" />
           <div className="flex">
-            <a
-              href="https://www.facebook.com"
-              className="text-black hover:text-gray-700 mx-2"
-            >
+            <a href="" className="text-[#545454] hover:text-gray-700 mx-2">
               <FontAwesomeIcon icon={faFacebookF} size="lg" />
             </a>
-            <a
-              href="https://www.twitter.com"
-              className="text-black hover:text-gray-700 mx-2"
-            >
+            <a href="" className="text-[#545454] hover:text-gray-700 mx-2">
               <FontAwesomeIcon icon={faTwitter} size="lg" />
             </a>
-            <a
-              href="https://www.instagram.com"
-              className="text-black hover:text-gray-700 mx-2"
-            >
+            <a href="" className="text-[#545454] hover:text-gray-700 mx-2">
               <FontAwesomeIcon icon={faInstagram} size="lg" />
             </a>
-            <a
-              href="https://www.linkedin.com"
-              className="text-black hover:text-gray-700 mx-2"
-            >
+            <a href="" className="text-[#545454] hover:text-gray-700 mx-2">
               <FontAwesomeIcon icon={faLinkedinIn} size="lg" />
             </a>
           </div>

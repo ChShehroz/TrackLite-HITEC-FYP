@@ -80,7 +80,7 @@ const CampusIssueDesk: React.FC = () => {
           subTitle="Exam Assistance"
           description="Have questions about exams? Get clarifications and support for your exam-related queries here."
           buttonText="Inquire Here"
-          routePath=""
+          routePath="/ExamQuries"
         />
       </div>
     </div>
