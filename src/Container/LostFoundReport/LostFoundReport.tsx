@@ -6,7 +6,20 @@ const LostFoundReport = () => {
   return (
     <>
       <NavBar />
-      <LostFoundForm />
+      <LostFoundForm
+        onSubmit={function (_data: {
+          name: string;
+          location: string;
+          phone: string;
+          email: string;
+          reportType: "Lost Item" | "Found Item";
+          description: string;
+          dateAndTime: string;
+          photo?: any;
+        }): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
       <Footer />
     </>
   );

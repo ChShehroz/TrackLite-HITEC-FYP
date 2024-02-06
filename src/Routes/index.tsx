@@ -7,6 +7,7 @@ import DegreeClearance from "../Container/DegreeClearance/DegreeClearance";
 import LostFoundReport from "../Container/LostFoundReport/LostFoundReport";
 import Complaint from "../Container/Complaints/Complaint";
 import ExamQuries from "../Container/ExamQuries/ExamQuries";
+import RequestHistory from "../Container/RequestHistory/RequestHistory";
 
 const RoutesPage = () => {
   return (
@@ -19,6 +20,7 @@ const RoutesPage = () => {
       <Route path="/LostFoundReport" element={<LostFoundReport />} />
       <Route path="/Complaints" element={<Complaint />} />
       <Route path="/ExamQuries" element={<ExamQuries />} />
+      <Route path="/RequestHistory" element={<RequestHistory />} />
     </Routes>
   );
 };
