@@ -17,8 +17,8 @@ const schema = z.object({
     .regex(/^\d{11}$/, { message: "Phone number must be 11 digits." }),
   courseName: z.string().min(1, "Course name is required."),
   courseCode: z.string().min(1, "Course code is required."),
-  dateAndTime: z.string().min(1, "Date and time are required."),
-  photo: z.any(),
+  reason: z.string().min(20, "Please provide a detailed reason or concern."),
+  file: z.instanceof(File).optional(),
 });
 
 type ExamQuriesFormData = z.infer<typeof schema>;
@@ -46,6 +46,7 @@ const ExamQuriesForm = ({}: Props) => {
   const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
   const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
+  const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
 
   return (
     <div className="flex flex-col items-center">
@@ -225,26 +226,40 @@ const ExamQuriesForm = ({}: Props) => {
               </div>
             </div>
 
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
                 <label
                   className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="dateTime"
+                  htmlFor="reason"
                 >
                   Detailed Reason/Concern
                 </label>
-                <input
-                  {...register("dateAndTime")}
-                  id="dateTime"
-                  type="datetime-local"
-                  className={formInputStyle}
-                  placeholder="Date and Time"
-                />
-                {errors.dateAndTime && (
+                <textarea
+                  {...register("reason")}
+                  id="reason"
+                  rows={3}
+                  className={textAreaStyle}
+                  placeholder="Describe the reason for your query in detail."
+                ></textarea>
+                {errors.reason && (
                   <span className="text-red-500 text-xs">
-                    {errors.dateAndTime.message}
+                    {errors.reason.message}
                   </span>
                 )}
+              </div>
+              <div className="w-full md:w-1/2 mb-6 md:mb-0">
+                <label
+                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
+                  htmlFor="file"
+                >
+                  Supporting Documents (optional)
+                </label>
+                <input
+                  {...register("file")}
+                  type="file"
+                  id="file"
+                  className={formInputStyle}
+                />
               </div>
             </div>
 
