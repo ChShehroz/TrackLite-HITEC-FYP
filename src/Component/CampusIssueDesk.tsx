@@ -33,7 +33,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <p className="text-sm text-[#484848] font-normal mb-4">{subTitle}</p>
           <p className="text-sm text-gray-600 mb-6">{description}</p>
           <Link to={routePath}>
-            <button className="mt-2 px-8 py-2 text-sm font-semibold text-white bg-black rounded-full shadow-sm hover:bg-transparent hover:text-black border border-gray-700 transition-all">
+            <button className="mt-2 px-8 py-2 text-sm font-semibold text-white bg-black rounded-full shadow-sm hover:bg-transparent hover:text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 transition-all">
               {buttonText}
             </button>
           </Link>

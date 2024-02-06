@@ -123,7 +123,7 @@ const SignUp = () => {
                 <Link to={"/LogIn"}>
                   <button
                     type="submit"
-                    className="w-[90%] px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full"
+                    className="w-[90%] px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                   >
                     Sign up
                   </button>

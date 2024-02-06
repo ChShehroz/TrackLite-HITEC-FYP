@@ -2,6 +2,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const schema = z.object({
   qureyType: z.enum(["Apply for 'I' Grade", "Exam Rechecking"]),
@@ -53,7 +55,7 @@ const ExamQuriesForm = ({}: Props) => {
       <h2 className="text-3xl text-[#545454] font-semibold my-10">
         Exam Query Assistance
       </h2>
-      <div className="bg-[#ff607d] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
+      <div className="bg-[#ff7d60] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
         <div className="bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
           <p className="text-sm text-center mx-24 mb-4">
             Need help with exam-related issues? Whether it's applying for an
@@ -254,12 +256,22 @@ const ExamQuriesForm = ({}: Props) => {
                 >
                   Supporting Documents (optional)
                 </label>
-                <input
-                  {...register("file")}
-                  type="file"
-                  id="file"
-                  className={formInputStyle}
-                />
+                <div
+                  className={`flex items-center ${formInputStyle} cursor-pointer relative`}
+                >
+                  <input
+                    {...register("file")}
+                    type="file"
+                    id="file"
+                    className="absolute inset-0 opacity-0 cursor-pointer"
+                    onChange={(e) => console.log(e.target.files)}
+                  />
+                  <FontAwesomeIcon
+                    icon={faUpload}
+                    className="h-4 w-5 text-gray-500 al mr-2"
+                  />
+                  <span>Upload a file</span>
+                </div>
               </div>
             </div>
 

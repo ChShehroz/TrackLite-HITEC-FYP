@@ -40,7 +40,7 @@ const MySlider: React.FC = () => {
                 accomplishments with our comprehensive online clearance system.
               </p>
               <Link to={"/DegreeApplication"}>
-                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 transition-colors duration-200">
+                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">
                   Approve Your Degree
                 </button>
               </Link>
@@ -69,7 +69,7 @@ const MySlider: React.FC = () => {
                 to report and submit your complaint for swift resolution.
               </p>
               <Link to={"/Complaints"}>
-                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800">
+                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">
                   Submit a Complaint
                 </button>
               </Link>
