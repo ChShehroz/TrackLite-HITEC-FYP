@@ -41,6 +41,8 @@ const ComplaintForm = ({}: Props) => {
   const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
   const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
   const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
+  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
+
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-3xl text-[#545454] font-semibold my-10">
@@ -60,10 +62,7 @@ const ComplaintForm = ({}: Props) => {
           <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="name"
-                >
+                <label className={formLabel} htmlFor="name">
                   Name
                 </label>
                 <input
@@ -80,10 +79,7 @@ const ComplaintForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 px-3">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="complaintNature"
-                >
+                <label className={formLabel} htmlFor="complaintNature">
                   Nature of Complaint
                 </label>
                 <input
@@ -102,10 +98,7 @@ const ComplaintForm = ({}: Props) => {
             </div>
 
             <div className="w-2/3">
-              <label
-                className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                htmlFor="email"
-              >
+              <label className={formLabel} htmlFor="email">
                 Email Address
               </label>
               <input
@@ -122,10 +115,7 @@ const ComplaintForm = ({}: Props) => {
               )}
             </div>
             <div className="w-full md:w-1/2 mb-6 md:mb-0">
-              <label
-                className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                htmlFor="issueDescription"
-              >
+              <label className={formLabel} htmlFor="issueDescription">
                 Detailed Description of the Issue
               </label>
               <textarea

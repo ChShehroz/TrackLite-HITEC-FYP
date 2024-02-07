@@ -44,6 +44,7 @@ const DegreeForm = ({}: Props) => {
   const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
   const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
+  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
   return (
     <div className="flex flex-col items-center">
@@ -64,10 +65,7 @@ const DegreeForm = ({}: Props) => {
           <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="studentName"
-                >
+                <label className={formLabel} htmlFor="studentName">
                   Student's Name
                 </label>
                 <input
@@ -84,10 +82,7 @@ const DegreeForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 px-3">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="fatherName"
-                >
+                <label className={formLabel} htmlFor="fatherName">
                   Father's Name
                 </label>
                 <input
@@ -106,10 +101,7 @@ const DegreeForm = ({}: Props) => {
             </div>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="rollNo"
-                >
+                <label className={formLabel} htmlFor="rollNo">
                   Roll Number
                 </label>
                 <input
@@ -126,10 +118,7 @@ const DegreeForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 px-3">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="semester"
-                >
+                <label className={formLabel} htmlFor="semester">
                   Semester
                 </label>
                 <input
@@ -147,10 +136,7 @@ const DegreeForm = ({}: Props) => {
               </div>
             </div>
             <div className="w-2/3">
-              <label
-                className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                htmlFor="email"
-              >
+              <label className={formLabel} htmlFor="email">
                 Email Address
               </label>
               <input
@@ -168,10 +154,7 @@ const DegreeForm = ({}: Props) => {
             </div>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="phone"
-                >
+                <label className={formLabel} htmlFor="phone">
                   Phone Number
                 </label>
                 <input
@@ -188,10 +171,7 @@ const DegreeForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 px-3">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="reasonForLeaving"
-                >
+                <label className={formLabel} htmlFor="reasonForLeaving">
                   Reason for Leaving
                 </label>
                 <input
@@ -209,10 +189,7 @@ const DegreeForm = ({}: Props) => {
               </div>
             </div>
             <div className="pb-6">
-              <label
-                className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                htmlFor="postalAddress"
-              >
+              <label className={formLabel} htmlFor="postalAddress">
                 Postal Address
               </label>
               <input

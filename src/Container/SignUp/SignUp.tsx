@@ -32,20 +32,20 @@ const SignUp = () => {
     <>
       <div className="relative text-center">
         <img src={getStartedImg} alt="Get started" className="w-[593px]" />
-        <div className="absolute top-[60px] left-[55%]">
-          <div className="w-[450px] h-[450px] pt-1.5 border-[#DEC0A7] bg-gradient-to-r from-[#D7D3C2] to-[#DEC0A7] shadow-lg bg-white rounded-xl">
-            <div className="w-[450px] h-[450px] px-8 py-4 bg-gradient-to-b from-[#f5f1e1] via-[#fffdf6] bg-[#fffdf6] rounded-t-md rounded-b-xl ">
-              <h1 className="text-3xl font-light text-center mb-5">
+        <div className="absolute top-[35px] left-[55%]">
+          <div className="w-[450px] h-[520px] pt-1.5 border-[#DEC0A7] bg-gradient-to-r from-[#D7D3C2] to-[#DEC0A7] shadow-lg bg-white rounded-xl">
+            <div className="w-[450px] h-[520px] px-8 py-4 bg-gradient-to-b from-[#f5f1e1] via-[#fffdf6] bg-[#fffdf6] rounded-t-md rounded-b-xl ">
+              <h1 className="text-3xl font-light text-center mb-2">
                 Create Account
               </h1>
               <h3 className="text-2xl font-semibold">Sign up</h3>
-              <p className=" text-sm font-medium mb-6">
+              <p className=" text-sm font-medium mb-5">
                 Please enter your Details
               </p>
               <form onSubmit={handleSubmit}>
-                <div className="mb-3 flex justify-between items-center">
+                <div className="mb-3">
                   <label
-                    className="block text-gray-700 text-sm font-semibold"
+                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
                     htmlFor="email"
                   >
                     Email
@@ -56,13 +56,13 @@ const SignUp = () => {
                     name="email"
                     placeholder="Enter your email"
                     onChange={handleInputChange}
-                    className="w-[78%] px-3 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
+                    className="w-full px-4 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
                   />
                 </div>
 
-                <div className="mb-3 flex justify-between items-center">
+                <div className="mb-3">
                   <label
-                    className="block text-gray-700 text-sm font-semibold"
+                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
                     htmlFor="password"
                   >
                     Password
@@ -72,26 +72,26 @@ const SignUp = () => {
                     name="password"
                     placeholder="Enter your password"
                     onChange={handleInputChange}
-                    className="w-[78%] px-3 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
+                    className="w-full px-4 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
                   />
                 </div>
-                <div className="mb-3 flex justify-between items-center gap-2">
+                <div className="mb-3 gap-2">
                   <label
-                    className="block text-gray-700 text-sm font-semibold"
+                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
                     htmlFor="department"
                   >
                     Department
                   </label>
                   <DropDown />
                 </div>
-                <div className="flex items-center w-[93%] mb-6">
+                <div className="mb-6">
                   <label
-                    className="block text-gray-700 text-sm font-semibold"
+                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
                     htmlFor="user type"
                   >
                     User type
                   </label>
-                  <div className="w-[78%]">
+                  <div className="w-full text-left">
                     <button
                       type="button"
                       onClick={() =>
@@ -123,7 +123,7 @@ const SignUp = () => {
                 <Link to={"/LogIn"}>
                   <button
                     type="submit"
-                    className="w-[90%] px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
+                    className="w-full px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                   >
                     Sign up
                   </button>

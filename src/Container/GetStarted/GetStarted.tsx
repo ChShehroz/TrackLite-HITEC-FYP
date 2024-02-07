@@ -17,7 +17,7 @@ const GetStarted = () => {
             </button>
           </Link>
           <Link to={"/SignUp"}>
-            <button className="rounded-full px-12 py-2.5 mx-2 text-sm font-bold border border-black bg-black  hover:bg-gray-800 text-white shadow-sm hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">
+            <button className="rounded-full px-12 py-2.5 mx-2 text-sm font-bold border border-black bg-black  hover:bg-gray-800 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">
               Sign Up
             </button>
           </Link>

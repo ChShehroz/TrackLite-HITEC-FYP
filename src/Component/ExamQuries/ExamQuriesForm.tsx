@@ -49,6 +49,7 @@ const ExamQuriesForm = ({}: Props) => {
   const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
   const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
   const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
+  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
   return (
     <div className="flex flex-col items-center">
@@ -104,10 +105,7 @@ const ExamQuriesForm = ({}: Props) => {
             </div>
             <div className="flex space-x-4">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="studentName"
-                >
+                <label className={formLabel} htmlFor="studentName">
                   Student's Name
                 </label>
                 <input
@@ -124,10 +122,7 @@ const ExamQuriesForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="rollNo"
-                >
+                <label className={formLabel} htmlFor="rollNo">
                   Roll Number
                 </label>
                 <input
@@ -146,10 +141,7 @@ const ExamQuriesForm = ({}: Props) => {
             </div>
             <div className="flex space-x-4">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="courseName"
-                >
+                <label className={formLabel} htmlFor="courseName">
                   Course Name
                 </label>
                 <input
@@ -165,10 +157,7 @@ const ExamQuriesForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="courseCode"
-                >
+                <label className={formLabel} htmlFor="courseCode">
                   Course Code
                 </label>
                 <input
@@ -187,10 +176,7 @@ const ExamQuriesForm = ({}: Props) => {
             </div>
             <div className="flex space-x-4">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="email"
-                >
+                <label className={formLabel} htmlFor="email">
                   Email Address
                 </label>
                 <input
@@ -207,10 +193,7 @@ const ExamQuriesForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="phone"
-                >
+                <label className={formLabel} htmlFor="phone">
                   Phone Number
                 </label>
                 <input
@@ -230,10 +213,7 @@ const ExamQuriesForm = ({}: Props) => {
 
             <div className="flex space-x-3">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="reason"
-                >
+                <label className={formLabel} htmlFor="reason">
                   Detailed Reason
                 </label>
                 <textarea
@@ -250,10 +230,7 @@ const ExamQuriesForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="file"
-                >
+                <label className={formLabel} htmlFor="file">
                   Supporting Documents (optional)
                 </label>
                 <div

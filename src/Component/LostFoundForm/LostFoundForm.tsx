@@ -47,6 +47,7 @@ const LostFoundForm = ({}: Props) => {
   const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
   const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
+  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
   return (
     <div className="flex flex-col items-center">
@@ -97,10 +98,7 @@ const LostFoundForm = ({}: Props) => {
             </div>
             <div className="flex space-x-4">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="studentName"
-                >
+                <label className={formLabel} htmlFor="studentName">
                   Name
                 </label>
                 <input
@@ -117,10 +115,7 @@ const LostFoundForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="phone"
-                >
+                <label className={formLabel} htmlFor="phone">
                   Phone Number
                 </label>
                 <input
@@ -138,10 +133,7 @@ const LostFoundForm = ({}: Props) => {
               </div>
             </div>
             <div className="w-2/3">
-              <label
-                className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                htmlFor="email"
-              >
+              <label className={formLabel} htmlFor="email">
                 Email Address
               </label>
               <input
@@ -159,10 +151,7 @@ const LostFoundForm = ({}: Props) => {
             </div>
             <div className="flex space-x-4">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="location"
-                >
+                <label className={formLabel} htmlFor="location">
                   Location (Last Seen/Found)
                 </label>
                 <input
@@ -178,10 +167,7 @@ const LostFoundForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="description"
-                >
+                <label className={formLabel} htmlFor="description">
                   Description of Item
                 </label>
                 <input
@@ -200,10 +186,7 @@ const LostFoundForm = ({}: Props) => {
             </div>
             <div className="flex space-x-4">
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="photoItem"
-                >
+                <label className={formLabel} htmlFor="photoItem">
                   Item Photo (optional for found items)
                 </label>
                 <div className="mt-2 flex justify-center rounded-3xl border border-dashed border-gray-400 px-6 py-4">
@@ -234,10 +217,7 @@ const LostFoundForm = ({}: Props) => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label
-                  className="block text-gray-700 text-sm font-medium ml-4 mb-2"
-                  htmlFor="dateTime"
-                >
+                <label className={formLabel} htmlFor="dateTime">
                   Date and Time
                 </label>
                 <input
