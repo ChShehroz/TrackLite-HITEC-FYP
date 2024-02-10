@@ -26,14 +26,14 @@ const LogIn = () => {
   return (
     <div className="relative text-center">
       <img src={getStartedImg} alt="Get started" className="w-[593px]" />
-      <div className="absolute top-[80px] left-[55%]">
-        <div className="w-[450px] h-[440px] pt-1.5 border-[#DEC0A7] bg-gradient-to-r from-[#ffe572] to-[#ffe57275] shadow-lg bg-white rounded-xl">
-          <div className="w-[450px] h-[440px] px-8 py-8 bg-gradient-to-b from-[#f5f1e1] via-[#fffdf6] bg-[#fffdf6] rounded-t-md rounded-b-xl ">
-            <h1 className="text-3xl font-light text-center mb-4">
+      <div className="absolute top-[50px] left-[55%]">
+        <div className="w-[450px] h-[480px] pt-1.5 border-[#DEC0A7] bg-gradient-to-r from-[#ffe572] to-[#ffe57275] shadow-lg bg-white rounded-xl">
+          <div className="w-[450px] h-[480px] px-8 py-8 bg-gradient-to-b from-[#f5f1e1] via-[#fffdf6] bg-[#fffdf6] rounded-t-md rounded-b-xl ">
+            <h1 className="text-3xl font-light text-center mb-6">
               Welcome Back!
             </h1>
             <h3 className="text-2xl font-semibold">Log In</h3>
-            <p className=" text-sm font-medium mb-6">
+            <p className=" text-sm font-medium mb-10">
               Please enter your Details
             </p>
             <form onSubmit={handleSubmit}>
@@ -69,7 +69,7 @@ const LogIn = () => {
                   className="w-full px-4 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
                 />
               </div>
-              <div className="text-right mb-6">
+              <div className="text-right mb-12">
                 <a className="text-sm text-blue-500 hover:underline cursor-pointer">
                   Forgot password?
                 </a>
