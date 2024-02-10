@@ -22,6 +22,16 @@
       {
         "select-name": "off"
       }
-    ]
+    ],
+    "compat-api/css": [
+      "default",
+      {
+        "ignore": [
+          "-webkit-tap-highlight-color",
+          "-webkit-text-size-adjust"
+        ]
+      }
+    ],
+    "css-prefix-order": "off"
   }
 }
