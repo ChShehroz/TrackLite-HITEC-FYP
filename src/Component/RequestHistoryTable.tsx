@@ -47,7 +47,7 @@ const RequestTable: React.FC = () => {
         My Requests/History
       </h2>
       {requests.length > 0 ? (
-        <div className="overflow-x-auto relative rounded-3xl shadow-md sm:rounded-xl mx-28 mb-16">
+        <div className="overflow-x-auto relative rounded-3xl shadow-lg sm:rounded-xl mx-28 mb-16">
           <table className="w-full text-sm text-left text-gray-600">
             <thead className="text-sm text-gray-700 uppercase bg-[#FEF8E1]">
               <tr>
