@@ -14,7 +14,7 @@ const RoutesPage = () => {
     <Routes>
       <Route path="/" element={<GetStarted />} />
       <Route path="/SignUp" element={<SignUp />} />
-      <Route path="/LogIn" element={<SignIn />} />
+      <Route path="/Log-In" element={<SignIn />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/DegreeApplication" element={<DegreeClearance />} />
       <Route path="/LostFoundReport" element={<LostFoundReport />} />
