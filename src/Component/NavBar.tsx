@@ -5,87 +5,111 @@ import {
   faClockRotateLeft,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  Navbar,
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+  Button,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+} from "@nextui-org/react";
 import Logo from "../assets/Images/Logoremovebg.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
+  const items = [
+    {
+      key: "changePassword",
+      label: "Change Password",
+    },
+    {
+      key: "login",
+      label: "Log In",
+    },
+    {
+      key: "logout",
+      label: "Log Out",
+    },
+  ];
   return (
-    <nav className="bg-[#FEF6D6] px-10 pt-6 pb-2">
-      <div className="container mx-auto flex justify-between items-center">
+    <Navbar
+      shouldHideOnScroll
+      maxWidth="full"
+      className="bg-[#FEF6D6] px-4 pt-2 pb-2"
+    >
+      <NavbarBrand>
         <img src={Logo} alt="Logo" className="h-11" />
-        <div className="space-x-4 flex items-center">
-          <div className="group inline-block relative">
-            <Link to={"/Home"}>
-              <a className="flex items-center space-x-2 px-4 py-2 cursor-pointer bg-black text-white rounded-full shadow-md transform transition-all duration-200 group-hover:scale-110 group-hover:px-6">
-                <FontAwesomeIcon
-                  icon={faHouseChimney}
-                  className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
-                />
+      </NavbarBrand>
+      <NavbarContent className="hidden sm:flex" justify="end">
+        <NavbarItem className="flex gap-3">
+          <Link to={"/Home"}>
+            <Button
+              radius="full"
+              className="flex items-center space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
+            >
+              <FontAwesomeIcon
+                icon={faHouseChimney}
+                className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
+              />
+              <span className="text-sm opacity-100 transition-opacity duration-200">
+                Home
+              </span>
+            </Button>
+          </Link>
+          <Link to={""}>
+            <Button
+              radius="full"
+              className="flex items-center space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
+            >
+              <FontAwesomeIcon
+                icon={faBell}
+                className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
+              />
+              <span className="text-sm opacity-100 transition-opacity duration-200">
+                Notification
+              </span>
+            </Button>
+          </Link>
+          <Link to={"/RequestHistory"}>
+            <Button
+              radius="full"
+              className="flex items-center space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
+            >
+              <FontAwesomeIcon
+                icon={faClockRotateLeft}
+                className="h-5 w-5 text-white group-hover:text-teal-500"
+              />
 
-                <span className="text-sm opacity-100 transition-opacity duration-200">
-                  Home
-                </span>
-              </a>
-            </Link>
-          </div>
-          <div className="group inline-block relative">
-            <Link to={""}>
-              <a className="flex items-center space-x-2 px-4 py-2 cursor-pointer bg-black text-white rounded-full shadow-md transform transition-all duration-200 group-hover:scale-110 group-hover:px-6">
-                <FontAwesomeIcon
-                  icon={faBell}
-                  className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
-                />
-                <span className="text-sm opacity-100 transition-opacity duration-200">
-                  Notification
-                </span>
-              </a>
-            </Link>
-          </div>
-          <div className="group inline-block relative">
-            <Link to={"/RequestHistory"}>
-              <a className="flex items-center space-x-2 px-4 py-2 cursor-pointer bg-black text-white rounded-full shadow-md transform transition-all duration-200 group-hover:scale-110 group-hover:px-6">
-                <FontAwesomeIcon
-                  icon={faClockRotateLeft}
-                  className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
-                />
-                <span className="text-sm opacity-100 transition-opacity duration-200">
-                  History
-                </span>
-              </a>
-            </Link>
-          </div>
-          <div className="group inline-block relative">
-            <div className="group mb-2 bg-black rounded-full transform transition-all duration-200 group-hover:scale-110">
-              <button className="flex items-center space-x-2 p-3">
-                <FontAwesomeIcon
-                  icon={faUser}
-                  className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
-                />
-              </button>
-            </div>
-            <ul className="absolute z-10 right-2 text-base text-black hidden pt-1 cursor-pointer group-hover:block w-48 transition-all duration-200 transform origin-top scale-95 group-hover:scale-100">
-              <li>
-                <a className="rounded-t text-black hover:text-yellow-50 bg-[#FFFCF1] hover:bg-black shadow-lg py-2 px-4 block whitespace-no-wrap transition-colors duration-200">
-                  Change Password
-                </a>
-              </li>
-              <Link to={"/LogIn"}>
-                <li>
-                  <a className="text-black hover:text-yellow-50 bg-[#FFFCF1] hover:bg-black shadow-lg py-2 px-4 block whitespace-no-wrap transition-colors duration-200">
-                    Login
-                  </a>
-                </li>
-              </Link>
-              <li>
-                <a className="rounded-b text-black hover:text-yellow-50 bg-[#FFFCF1] hover:bg-black shadow-lg py-2 px-4 block whitespace-no-wrap transition-colors duration-200">
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+              <span className="text-sm opacity-100">History</span>
+            </Button>
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+
+      <Dropdown placement="bottom-end">
+        <DropdownTrigger>
+          <Button isIconOnly className="bg-slate-800" radius="full">
+            <FontAwesomeIcon
+              icon={faUser}
+              className="h-5 w-5 text-white group-hover:text-teal-500"
+            />
+          </Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Dynamic Actions" items={items}>
+          {(item) => (
+            <DropdownItem
+              color={item.key === "logout" ? "danger" : "default"}
+              className={item.key === "logout" ? "text-danger" : ""}
+            >
+              {item.label}
+            </DropdownItem>
+          )}
+        </DropdownMenu>
+      </Dropdown>
+    </Navbar>
   );
 };
 

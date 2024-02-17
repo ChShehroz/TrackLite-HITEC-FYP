@@ -18,6 +18,8 @@
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "@hookform/resolvers": "^3.3.4",
+    "@nextui-org/react": "^2.2.9",
+    "framer-motion": "^11.0.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
     "react": "^18.2.0",
