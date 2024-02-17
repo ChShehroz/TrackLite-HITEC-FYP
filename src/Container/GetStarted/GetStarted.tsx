@@ -21,11 +21,11 @@ const GetStarted = () => {
               Log In
             </Button>
           </Link>
-          <Link to={"/SignUp"}>
+          <Link to={"/Sign-Up"}>
             <Button
               radius="full"
               variant="flat"
-              className="px-12 py-2.5 mx-2 text-sm font-bold border border-black bg-slate-800 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-400"
+              className="px-12 py-2.5 mx-2 font-bold bg-slate-800 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-400"
             >
               Sign Up
             </Button>

@@ -13,7 +13,7 @@ const RoutesPage = () => {
   return (
     <Routes>
       <Route path="/" element={<GetStarted />} />
-      <Route path="/SignUp" element={<SignUp />} />
+      <Route path="/Sign-Up" element={<SignUp />} />
       <Route path="/Log-In" element={<SignIn />} />
       <Route path="/Home" element={<Home />} />
       <Route path="/DegreeApplication" element={<DegreeClearance />} />
