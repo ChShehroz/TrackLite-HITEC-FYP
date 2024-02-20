@@ -43,13 +43,13 @@ const requests: Request[] = [
 const RequestTable: React.FC = () => {
   return (
     <div>
-      <h2 className="text-3xl text-[#545454] font-semibold my-11 text-center">
+      <h2 className="text-3xl text-slate-800 font-semibold my-11 text-center">
         My Requests/History
       </h2>
       {requests.length > 0 ? (
         <div className="overflow-x-auto relative rounded-3xl shadow-lg sm:rounded-xl mx-28 mb-16">
-          <table className="w-full text-sm text-left text-gray-600">
-            <thead className="text-sm text-gray-700 uppercase bg-[#FEF8E1]">
+          <table className="w-full text-sm text-left text-slate-600">
+            <thead className="text-sm text-slate-800 uppercase bg-[#FEF8E1]">
               <tr>
                 <th scope="col" className="py-4 px-6">
                   Issue
@@ -92,7 +92,7 @@ const RequestTable: React.FC = () => {
       ) : (
         <div className="flex flex-col justify-center items-center h-[268px]">
           <img src={imgFolder} alt="No requests" className="h-32" />
-          <p className="mt-4 text-xl text-gray-500">No requests found.</p>
+          <p className="mt-4 text-xl text-slate-600">No requests found.</p>
         </div>
       )}
     </div>

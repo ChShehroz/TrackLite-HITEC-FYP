@@ -29,7 +29,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-[90%] border-t border-gray-400 my-3"></div>
-        <span className="text-xs text-black pt-2">
+        <span className="text-xs text-slate-600 pt-2">
           © 2024 TrackLite HITEC University. All Rights Reserved.
         </span>
       </div>

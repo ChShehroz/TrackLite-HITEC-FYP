@@ -48,42 +48,37 @@ const NavBar = () => {
           <Link to={"/Home"}>
             <Button
               radius="full"
-              className="flex items-center space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
+              className="flex items-center text-sm space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
             >
               <FontAwesomeIcon
                 icon={faHouseChimney}
                 className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
               />
-              <span className="text-sm opacity-100 transition-opacity duration-200">
-                Home
-              </span>
+              Home
             </Button>
           </Link>
           <Link to={""}>
             <Button
               radius="full"
-              className="flex items-center space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
+              className="flex items-center text-sm space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
             >
               <FontAwesomeIcon
                 icon={faBell}
                 className="h-5 w-5 text-white group-hover:text-teal-500 transition-colors duration-200"
               />
-              <span className="text-sm opacity-100 transition-opacity duration-200">
-                Notification
-              </span>
+              Notification
             </Button>
           </Link>
           <Link to={"/RequestHistory"}>
             <Button
               radius="full"
-              className="flex items-center space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
+              className="flex items-center text-sm space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"
             >
               <FontAwesomeIcon
                 icon={faClockRotateLeft}
                 className="h-5 w-5 text-white group-hover:text-teal-500"
               />
-
-              <span className="text-sm opacity-100">History</span>
+              History
             </Button>
           </Link>
         </NavbarItem>
