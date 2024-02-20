@@ -1,10 +1,10 @@
 :global(.slick-dots li button:before) {
-  color: #000 !important;
+  color: #475569 !important;
 }
 
 :global(.slick-prev:before),
 :global(.slick-next:before) {
-  color: #000 !important;
+  color: #475569 !important;
 }
 
 :global(.slick-prev) {

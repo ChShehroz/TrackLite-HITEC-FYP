@@ -26,13 +26,13 @@ const MySlider: React.FC = () => {
         <div className="bg-gradient-to-t from-[#E0EAFC] to-[#CFDEF3] px-12 py-6 rounded-t-xl rounded-b-3xl flex justify-between items-center space-x-4">
           <div className="flex">
             <div className="flex-1">
-              <h2 className="text-4xl font-semibold text-[#545454]">
+              <h2 className="text-4xl font-semibold text-slate-700">
                 Achieve Your Milestone with Ease
               </h2>
-              <p className="mb-4 text-lg font-medium">
+              <p className="mb-4 text-slate-800 text-lg font-medium">
                 Streamlined Degree Clearance Process
               </p>
-              <p className="mb-3 font-light from-stone-600 mr-3">
+              <p className="mb-3 font-light text-slate-500 mr-3">
                 Navigating through your degree clearance is now simpler than
                 ever. With TrackLite HITEC, you're just a click away from
                 beginning the final steps of your academic journey. Secure your
@@ -56,11 +56,13 @@ const MySlider: React.FC = () => {
         <div className="bg-gradient-to-t from-[#FFF6E5] to-[#FFD2A0] px-12 py-6 rounded-t-xl rounded-b-3xl flex justify-between items-center space-x-4">
           <div className="flex">
             <div className="flex-1">
-              <h2 className="text-4xl font-semibold text-[#545454]">
+              <h2 className="text-4xl font-semibold text-slate-700">
                 Speak Up - We're Here to Listen
               </h2>
-              <p className="mb-4 text-lg font-medium">Your Voice Matters</p>
-              <p className="mb-3 font-light from-stone-600">
+              <p className="mb-4 text-lg text-slate-800 font-medium">
+                Your Voice Matters
+              </p>
+              <p className="mb-3 font-light text-slate-500">
                 At TrackLite HITEC, every feedback is an opportunity for us to
                 improve. If you've encountered any issues or if there's anything
                 about campus life, academics, or services that concerns you,

@@ -40,11 +40,11 @@ const SignUp = () => {
         <div className="absolute top-[35px] left-[55%]">
           <div className="w-[450px] h-[520px] pt-1.5 border-[#DEC0A7] bg-gradient-to-r from-[#D7D3C2] to-[#DEC0A7] shadow-lg bg-white rounded-xl">
             <div className="w-[450px] h-[520px] px-8 py-4 bg-gradient-to-b from-[#f5f1e1] via-[#fffdf6] bg-[#fffdf6] rounded-t-md rounded-b-xl ">
-              <h1 className="text-3xl font-light text-center mb-2">
+              <h1 className="text-3xl font-light text-slate-600 text-center mb-2">
                 Create Account
               </h1>
-              <h3 className="text-2xl font-semibold">Sign up</h3>
-              <p className=" text-sm font-medium mb-5">
+              <h3 className="text-2xl text-slate-800 font-semibold">Sign up</h3>
+              <p className=" text-sm text-slate-500 font-medium mb-5">
                 Please enter your Details
               </p>
               <form onSubmit={handleSubmit}>
@@ -133,7 +133,7 @@ const SignUp = () => {
                     Sign up
                   </button>
                 </Link>
-                <p className="text-center text-sm mt-2">
+                <p className="text-center text-slate-600 text-sm mt-2">
                   Already a user?{" "}
                   <Link to={"/Log-In"}>
                     <a className="text-blue-500 hover:underline cursor-pointer">

@@ -29,9 +29,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <img src={img} className="w-20 text-gray-700" />
         </div>
         <div className="flex-1">
-          <h3 className="text-2xl font-semibold">{title}</h3>
-          <p className="text-sm text-[#484848] font-normal mb-4">{subTitle}</p>
-          <p className="text-sm text-gray-600 mb-6">{description}</p>
+          <h3 className="text-2xl text-slate-800 font-semibold">{title}</h3>
+          <p className="text-sm text-slate-500 font-normal mb-4">{subTitle}</p>
+          <p className="text-sm text-slate-600 mb-6">{description}</p>
           <Link to={routePath}>
             <button className="mt-2 px-8 py-2 text-sm font-semibold text-white bg-black rounded-full shadow-sm hover:bg-transparent hover:text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 transition-all">
               {buttonText}
@@ -46,7 +46,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 const CampusIssueDesk: React.FC = () => {
   return (
     <div className="px-8 pt-8 pb-14">
-      <h2 className="text-3xl font-bold text-[#555555] text-center mb-6">
+      <h2 className="text-3xl font-bold text-slate-800 text-center mb-6">
         Campus Issue Desk
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
