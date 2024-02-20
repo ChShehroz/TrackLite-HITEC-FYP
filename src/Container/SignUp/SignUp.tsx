@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import DropDown from "../../Component/DropDown";
 import getStartedImg from "../../assets/Images/GetStarted.png";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface FormState {
   email: string;
@@ -28,6 +28,11 @@ const SignUp = () => {
     console.log(formState);
     // Here you would typically handle the form submission, like sending data to a server
   };
+
+  useEffect(() => {
+    document.title = "Sign-Up";
+  });
+
   return (
     <>
       <div className="relative text-center">
@@ -120,7 +125,7 @@ const SignUp = () => {
                     </button>
                   </div>
                 </div>
-                <Link to={"/LogIn"}>
+                <Link to={"/Log-In"}>
                   <button
                     type="submit"
                     className="w-full px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
@@ -130,7 +135,7 @@ const SignUp = () => {
                 </Link>
                 <p className="text-center text-sm mt-2">
                   Already a user?{" "}
-                  <Link to={"/LogIn"}>
+                  <Link to={"/Log-In"}>
                     <a className="text-blue-500 hover:underline cursor-pointer">
                       Login
                     </a>

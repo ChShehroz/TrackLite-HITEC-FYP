@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import { Link } from "react-router-dom";
 
@@ -23,6 +23,11 @@ const LogIn = () => {
     console.log(formState);
     // Here you would typically handle the form submission, like sending data to a server
   };
+
+  useEffect(() => {
+    document.title = "Log-In";
+  });
+
   return (
     <div className="relative text-center">
       <img src={getStartedImg} alt="Get started" className="w-[593px]" />
@@ -84,7 +89,7 @@ const LogIn = () => {
               </Link>
               <p className="text-center text-sm mt-2">
                 Register?{" "}
-                <Link to={"/SignUp"}>
+                <Link to={"/Sign-Up"}>
                   <a className="text-blue-500 hover:underline cursor-pointer">
                     SignUp
                   </a>
