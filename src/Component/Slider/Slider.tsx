@@ -65,8 +65,8 @@ const MySlider: React.FC = () => {
                 improve. If you've encountered any issues or if there's anything
                 about campus life, academics, or services that concerns you,
                 don't hesitate to let us know. Your input is invaluable and will
-                be promptly reviewed by our dedicated team. Please use the form
-                to report and submit your complaint for swift resolution.
+                be promptly reviewed by our dedicated team. Submit complaints
+                here.
               </p>
               <Link to={"/Complaints"}>
                 <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">

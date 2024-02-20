@@ -62,7 +62,7 @@ const CampusIssueDesk: React.FC = () => {
           img={img3}
           title="Loss and Found"
           subTitle="Reclaim Your Items"
-          description="Misplaced something on campus? Browse found items or report lost belongings for quick recovery."
+          description="Lost an item on campus? Report it here. Found something? Help it return to its owner. Together, let's reunite lost belongings with their rightful owners."
           buttonText="Search & Report"
           routePath="/LostFoundReport"
         />

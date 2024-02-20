@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Footer from "../../Component/Footer";
 import LostFoundForm from "../../Component/LostFoundForm/LostFoundForm";
 import NavBar from "../../Component/NavBar";
@@ -16,6 +17,10 @@ const LostFoundReport = () => {
     // Perform some action with the form data
     console.log(data);
   };
+
+  useEffect(() => {
+    document.title = "Lost-Found";
+  });
   return (
     <>
       <NavBar />
