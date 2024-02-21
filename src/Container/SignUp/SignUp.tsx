@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import DropDown from "../../Component/DropDown";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import React, { useEffect, useState } from "react";
+import { Input } from "@nextui-org/react";
 
 interface FormState {
   email: string;
@@ -44,24 +45,31 @@ const SignUp = () => {
                 Create Account
               </h1>
               <h3 className="text-2xl text-slate-800 font-semibold">Sign up</h3>
-              <p className=" text-sm text-slate-500 font-medium mb-5">
+              <p className=" text-sm text-slate-500 font-medium mb-10">
                 Please enter your Details
               </p>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label
-                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
-                    htmlFor="email"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
+                  <Input
                     type="email"
                     name="email"
-                    placeholder="Enter your email"
+                    label="Email"
+                    labelPlacement="outside"
+                    radius="full"
                     onChange={handleInputChange}
-                    className="w-full px-4 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
+                    classNames={{
+                      label: ["text-slate-600", "ml-1"],
+                      input: ["bg-transparent", "text-slate-500"],
+                      innerWrapper: "bg-transparent",
+                      inputWrapper: [
+                        "shadow-sm",
+                        "bg-default-200/60",
+                        "backdrop-blur-lg",
+                        "backdrop-saturate-200",
+                        "hover:bg-default-200/80",
+                        "group-data-[focused=true]:bg-default-200/",
+                      ],
+                    }}
                   />
                 </div>
 
