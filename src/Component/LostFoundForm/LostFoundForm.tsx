@@ -3,6 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { PhotoIcon } from "@heroicons/react/20/solid";
+import { RadioGroup, Radio } from "@nextui-org/react";
 
 const schema = z.object({
   reportType: z.enum(["Lost Item", "Found Item"]),
@@ -71,27 +72,27 @@ const LostFoundForm = ({}: Props) => {
                 name="reportType"
                 control={control}
                 render={({ field }) => (
-                  <div className="flex items-center space-x-4">
-                    <label className="flex items-center space-x-2">
-                      <input
+                  <div className="flex space-x-4">
+                    <RadioGroup orientation="horizontal">
+                      <Radio
                         {...register("reportType")}
                         type="radio"
                         value="Lost Item"
                         checked={field.value === "Lost Item"}
-                        className="form-radio h-5 w-5 text-blue-600 border-gray-300"
-                      />
-                      <span className="text-sm font-medium">Lost Item</span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input
+                        className="form-radio text-blue-600 border-gray-300"
+                      >
+                        Lost Item
+                      </Radio>
+                      <Radio
                         {...register("reportType")}
                         type="radio"
                         value="Found Item"
                         checked={field.value === "Found Item"}
-                        className="form-radio h-5 w-5 text-blue-600 border-gray-300"
-                      />
-                      <span className="text-sm font-medium">Found Item</span>
-                    </label>
+                        className="form-radio text-blue-600 border-gray-300"
+                      >
+                        Found Item
+                      </Radio>
+                    </RadioGroup>
                   </div>
                 )}
               />
