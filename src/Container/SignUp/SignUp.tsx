@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DropDown from "../../Component/DropDown";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import React, { useEffect, useState } from "react";
@@ -15,6 +15,12 @@ interface FormState {
 }
 
 const SignUp = () => {
+  let navigate = useNavigate();
+
+  const handleSignUpClick = () => {
+    navigate("/Log-In");
+  };
+
   const [formState, setFormState] = useState<FormState>({
     email: "",
     password: "",
@@ -167,8 +173,10 @@ const SignUp = () => {
                 </div>
                 <Link to={"/Log-In"}>
                   <Button
-                    type="submit"
-                    className="w-full px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
+                    onClick={handleSignUpClick}
+                    radius="full"
+                    variant="flat"
+                    className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md"
                   >
                     Sign up
                   </Button>
