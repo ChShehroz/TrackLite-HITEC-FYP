@@ -3,6 +3,9 @@ import DropDown from "../../Component/DropDown";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import React, { useEffect, useState } from "react";
 import { Input } from "@nextui-org/react";
+import { RiEyeFill } from "react-icons/ri";
+import { RiEyeOffFill } from "react-icons/ri";
+import { TbMailFilled } from "react-icons/tb";
 
 interface FormState {
   email: string;
@@ -33,6 +36,9 @@ const SignUp = () => {
   useEffect(() => {
     document.title = "Sign-Up";
   });
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  const toggleVisibility = () => setIsVisible(!isVisible);
 
   return (
     <>
@@ -49,13 +55,16 @@ const SignUp = () => {
                 Please enter your Details
               </p>
               <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+                <div>
                   <Input
                     type="email"
                     label="Email"
                     labelPlacement="outside"
                     radius="full"
                     onChange={handleInputChange}
+                    endContent={
+                      <TbMailFilled className="text-2xl text-slate-600 pointer-events-none flex-shrink-0" />
+                    }
                     classNames={{
                       inputWrapper: [
                         "shadow-sm",
@@ -69,24 +78,46 @@ const SignUp = () => {
                         "border-slate-400",
                       ],
                       input: ["bg-transparent", "text-slate-500"],
-                      label: ["text-slate-600", "ml-1"],
+                      label: ["text-slate-600", "ml-1", "pl-3"],
                     }}
                   />
                 </div>
 
-                <div className="mb-3">
-                  <label
-                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
-                    htmlFor="password"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    placeholder="Enter your password"
+                <div className="mb-3 mt-8">
+                  <Input
+                    label="Password"
+                    labelPlacement="outside"
+                    radius="full"
                     onChange={handleInputChange}
-                    className="w-full px-4 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
+                    endContent={
+                      <button
+                        className="focus:outline-none"
+                        type="button"
+                        onClick={toggleVisibility}
+                      >
+                        {isVisible ? (
+                          <RiEyeOffFill className="text-2xl text-slate-600 pointer-events-none" />
+                        ) : (
+                          <RiEyeFill className="text-2xl text-slate-600 pointer-events-none" />
+                        )}
+                      </button>
+                    }
+                    type={isVisible ? "text" : "password"}
+                    classNames={{
+                      inputWrapper: [
+                        "shadow-sm",
+                        "bg-default-200/70",
+                        "backdrop-blur-lg",
+                        "backdrop-saturate-200",
+                        "hover:bg-default-200/80",
+                        "group-data-[focused=true]:bg-default-200/75",
+                        "text-slate-500",
+                        "border",
+                        "border-slate-400",
+                      ],
+                      input: ["bg-transparent", "text-slate-500"],
+                      label: ["text-slate-600", "ml-1", "pl-3"],
+                    }}
                   />
                 </div>
                 <div className="mb-3 gap-2">
