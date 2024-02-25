@@ -52,23 +52,24 @@ const SignUp = () => {
                 <div className="mb-3">
                   <Input
                     type="email"
-                    name="email"
                     label="Email"
                     labelPlacement="outside"
                     radius="full"
                     onChange={handleInputChange}
                     classNames={{
-                      label: ["text-slate-600", "ml-1"],
-                      input: ["bg-transparent", "text-slate-500"],
-                      innerWrapper: "bg-transparent",
                       inputWrapper: [
                         "shadow-sm",
-                        "bg-default-200/60",
+                        "bg-default-200/70",
                         "backdrop-blur-lg",
                         "backdrop-saturate-200",
                         "hover:bg-default-200/80",
-                        "group-data-[focused=true]:bg-default-200/",
+                        "group-data-[focused=true]:bg-default-200/75",
+                        "text-slate-500",
+                        "border",
+                        "border-slate-400",
                       ],
+                      input: ["bg-transparent", "text-slate-500"],
+                      label: ["text-slate-600", "ml-1"],
                     }}
                   />
                 </div>
