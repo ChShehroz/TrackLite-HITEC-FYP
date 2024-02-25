@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import DropDown from "../../Component/DropDown";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import React, { useEffect, useState } from "react";
-import { Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 import { RiEyeFill } from "react-icons/ri";
 import { RiEyeOffFill } from "react-icons/ri";
 import { TbMailFilled } from "react-icons/tb";
@@ -166,12 +166,12 @@ const SignUp = () => {
                   </div>
                 </div>
                 <Link to={"/Log-In"}>
-                  <button
+                  <Button
                     type="submit"
                     className="w-full px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
                   >
                     Sign up
-                  </button>
+                  </Button>
                 </Link>
                 <p className="text-center text-slate-600 text-sm mt-2">
                   Already a user?{" "}
