@@ -171,16 +171,16 @@ const SignUp = () => {
                     </button>
                   </div>
                 </div>
-                <Link to={"/Log-In"}>
-                  <Button
-                    onClick={handleSignUpClick}
-                    radius="full"
-                    variant="flat"
-                    className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md"
-                  >
-                    Sign up
-                  </Button>
-                </Link>
+
+                <Button
+                  onClick={handleSignUpClick}
+                  radius="full"
+                  variant="flat"
+                  className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md"
+                >
+                  Sign up
+                </Button>
+
                 <p className="text-center text-slate-600 text-sm mt-2">
                   Already a user?{" "}
                   <Link to={"/Log-In"}>

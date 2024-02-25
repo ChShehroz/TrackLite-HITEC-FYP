@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import getStartedImg from "../../assets/Images/GetStarted.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
+import { Button, Input } from "@nextui-org/react";
+import { TbMailFilled } from "react-icons/tb";
 
 interface FormState {
   email: string;
@@ -24,10 +28,18 @@ const LogIn = () => {
     // Here you would typically handle the form submission, like sending data to a server
   };
 
+  let navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/Log-In");
+  };
+
   useEffect(() => {
     document.title = "Log-In";
   });
+  const [isVisible, setIsVisible] = React.useState(false);
 
+  const toggleVisibility = () => setIsVisible(!isVisible);
   return (
     <div className="relative text-center">
       <img src={getStartedImg} alt="Get started" className="w-[593px]" />
@@ -42,51 +54,84 @@ const LogIn = () => {
               Please enter your Details
             </p>
             <form onSubmit={handleSubmit}>
-              <div className="mb-3">
-                <label
-                  className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  id="email"
+              <div className="mb-10">
+                <Input
                   type="email"
-                  name="email"
-                  placeholder="Enter your email"
+                  label="Email"
+                  labelPlacement="outside"
+                  radius="full"
                   onChange={handleInputChange}
-                  className="w-full px-4 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
+                  endContent={
+                    <TbMailFilled className="text-2xl text-slate-600 pointer-events-none flex-shrink-0" />
+                  }
+                  classNames={{
+                    inputWrapper: [
+                      "shadow-sm",
+                      "bg-default-200/70",
+                      "backdrop-blur-lg",
+                      "backdrop-saturate-200",
+                      "hover:bg-default-200/80",
+                      "group-data-[focused=true]:bg-default-200/75",
+                      "text-slate-500",
+                      "border",
+                      "border-slate-400",
+                    ],
+                    input: ["bg-transparent", "text-slate-500"],
+                    label: ["text-slate-600", "ml-1", "pl-3"],
+                  }}
                 />
               </div>
 
               <div>
-                <label
-                  className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
-                  htmlFor="password"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Enter your password"
+                <Input
+                  label="Password"
+                  labelPlacement="outside"
+                  radius="full"
                   onChange={handleInputChange}
-                  className="w-full px-4 py-1.5 bg-transparent border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]"
+                  endContent={
+                    <button
+                      className="focus:outline-none"
+                      type="button"
+                      onClick={toggleVisibility}
+                    >
+                      {isVisible ? (
+                        <RiEyeOffFill className="text-2xl text-slate-600 pointer-events-none" />
+                      ) : (
+                        <RiEyeFill className="text-2xl text-slate-600 pointer-events-none" />
+                      )}
+                    </button>
+                  }
+                  type={isVisible ? "text" : "password"}
+                  classNames={{
+                    inputWrapper: [
+                      "shadow-sm",
+                      "bg-default-200/70",
+                      "backdrop-blur-lg",
+                      "backdrop-saturate-200",
+                      "hover:bg-default-200/80",
+                      "group-data-[focused=true]:bg-default-200/75",
+                      "text-slate-500",
+                      "border",
+                      "border-slate-400",
+                    ],
+                    input: ["bg-transparent", "text-slate-500"],
+                    label: ["text-slate-600", "ml-1", "pl-3"],
+                  }}
                 />
               </div>
-              <div className="text-right mb-12">
+              <div className="text-right mb-8">
                 <a className="text-sm text-blue-500 hover:underline cursor-pointer">
                   Forgot password?
                 </a>
               </div>
-              <Link to={"/Home"}>
-                <button
-                  type="submit"
-                  className="w-full px-3 py-1.5 text-sm font-bold border border-black bg-black hover:border-slate-500 text-white hover:text-black shadow-sm hover:bg-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50"
-                >
-                  Log In
-                </button>
-              </Link>
+              <Button
+                onClick={handleLoginClick}
+                radius="full"
+                variant="flat"
+                className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md"
+              >
+                Sign up
+              </Button>
               <p className="text-center text-sm mt-2">
                 Register?{" "}
                 <Link to={"/Sign-Up"}>
