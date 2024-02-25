@@ -4,6 +4,7 @@ import img2 from "../../src/assets/Images/complaint.png";
 import img3 from "../../src/assets/Images/binoculars (1).png";
 import img4 from "../../src/assets/Images/image 3.png";
 import { Link } from "react-router-dom";
+import { Button } from "@nextui-org/react";
 
 interface ServiceCardProps {
   img: any;
@@ -33,9 +34,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           <p className="text-sm text-slate-500 font-normal mb-4">{subTitle}</p>
           <p className="text-sm text-slate-600 mb-6">{description}</p>
           <Link to={routePath}>
-            <button className="mt-2 px-8 py-2 text-sm font-semibold text-white bg-black rounded-full shadow-sm hover:bg-transparent hover:text-black border border-gray-700 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50 transition-all">
+            <Button
+              radius="full"
+              variant="flat"
+              className="mt-2 px-8 py-2 font-semibold bg-slate-800 text-white shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-400"
+            >
               {buttonText}
-            </button>
+            </Button>
           </Link>
         </div>
       </div>
