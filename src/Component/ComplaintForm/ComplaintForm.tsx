@@ -45,8 +45,8 @@ const ComplaintForm = ({}: Props) => {
   };
 
   const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
-  const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
-  const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
+  const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
+  const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
   const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
@@ -185,17 +185,24 @@ const ComplaintForm = ({}: Props) => {
             </div>
             <div className="flex justify-end gap-3 mt-6">
               <Link to={"/Home"}>
-                <button
-                  type="button"
+                <Button
+                  radius="full"
+                  variant="light"
+                  color="danger"
                   className={btnSecondaryStyle}
                   onClick={() => reset()}
                 >
                   Cancel
-                </button>
+                </Button>
               </Link>
-              <button type="submit" className={btnPrimaryStyle}>
+              <Button
+                type="submit"
+                radius="full"
+                variant="flat"
+                className={btnPrimaryStyle}
+              >
                 Submit Complaint
-              </button>
+              </Button>
             </div>
           </form>
         </div>
