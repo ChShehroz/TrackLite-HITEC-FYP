@@ -113,7 +113,7 @@ const ExamQuriesForm = ({}: Props) => {
             <PopoverContent>
               <div className="w-96 px-4 py-4">
                 <div className="text-small font-bold text-slate-800">
-                  Degree Clearance
+                  Exam Query Assistance
                 </div>
                 <div className="text-tiny text-slate-600">
                   Need help with exam-related issues? Whether it's applying for
