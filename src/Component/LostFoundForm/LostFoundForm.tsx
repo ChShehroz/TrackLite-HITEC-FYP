@@ -4,6 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { PhotoIcon } from "@heroicons/react/20/solid";
 import { RadioGroup, Radio } from "@nextui-org/react";
+import { useEffect } from "react";
 
 const schema = z.object({
   reportType: z.enum(["Lost Item", "Found Item"]),
@@ -49,6 +50,10 @@ const LostFoundForm = ({}: Props) => {
   const btnPrimaryStyle = `bg-black text-white font-semibold px-8 py-1 rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50`;
   const btnSecondaryStyle = `bg-transparent text-red-500 font-semibold px-8 py-1 rounded-full rounded border-2 border-red-400 hover:text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
   const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
+
+  useEffect(() => {
+    document.title = "Lost-Found";
+  });
 
   return (
     <div className="flex flex-col items-center">
