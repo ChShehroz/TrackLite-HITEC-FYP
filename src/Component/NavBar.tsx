@@ -69,7 +69,7 @@ const NavBar = () => {
               Notification
             </Button>
           </Link>
-          <Link to={"/RequestHistory"}>
+          <Link to={"/Request-History"}>
             <Button
               radius="full"
               className="flex items-center text-sm space-x-2 px-4 py-2 bg-slate-800 text-white shadow-md"

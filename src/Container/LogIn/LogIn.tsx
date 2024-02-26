@@ -37,6 +37,7 @@ const LogIn = () => {
   useEffect(() => {
     document.title = "Log-In";
   });
+
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
