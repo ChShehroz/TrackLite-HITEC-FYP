@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import DegreeForm from "../../Component/DegreeApplicationForm/DegreeForm";
 import Footer from "../../Component/Footer";
 import NavBar from "../../Component/NavBar";
@@ -16,6 +17,10 @@ const DegreeClearance = () => {
     // Perform some action with the form data
     console.log(data);
   };
+
+  useEffect(() => {
+    document.title = "Degree-Clearance";
+  });
 
   return (
     <>

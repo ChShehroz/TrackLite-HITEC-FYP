@@ -40,7 +40,7 @@ const MySlider: React.FC = () => {
                 transcripts, finalize records, and celebrate your
                 accomplishments with our comprehensive online clearance system.
               </p>
-              <Link to={"/DegreeApplication"}>
+              <Link to={"/Degree-Application"}>
                 <Button
                   radius="full"
                   variant="flat"

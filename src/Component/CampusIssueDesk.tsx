@@ -61,7 +61,7 @@ const CampusIssueDesk: React.FC = () => {
           subTitle="Your Graduation Gateway"
           description="Complete your academic chapter smoothly. Verify credits, finalize dues, and prepare for your ceremony, all in one place."
           buttonText="Start Here"
-          routePath="/DegreeApplication"
+          routePath="/Degree-Application"
         />
         <ServiceCard
           img={img3}
@@ -69,7 +69,7 @@ const CampusIssueDesk: React.FC = () => {
           subTitle="Reclaim Your Items"
           description="Lost an item on campus? Report it here. Found something? Help it return to its owner. Together, let's reunite lost belongings with their rightful owners."
           buttonText="Search & Report"
-          routePath="/LostFoundReport"
+          routePath="/Lost-Found-Report"
         />
         <ServiceCard
           img={img2}
@@ -85,7 +85,7 @@ const CampusIssueDesk: React.FC = () => {
           subTitle="Exam Assistance"
           description="Have questions about exams? Get clarifications and support for your exam-related queries here."
           buttonText="Inquire Here"
-          routePath="/ExamQuries"
+          routePath="/Exam-Quries"
         />
       </div>
     </div>

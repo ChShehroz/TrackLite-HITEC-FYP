@@ -16,11 +16,11 @@ const RoutesPage = () => {
       <Route path="/Sign-Up" element={<SignUp />} />
       <Route path="/Log-In" element={<SignIn />} />
       <Route path="/Home" element={<Home />} />
-      <Route path="/DegreeApplication" element={<DegreeClearance />} />
-      <Route path="/LostFoundReport" element={<LostFoundReport />} />
+      <Route path="/Degree-Application" element={<DegreeClearance />} />
+      <Route path="/Lost-Found-Report" element={<LostFoundReport />} />
       <Route path="/Complaints" element={<Complaint />} />
-      <Route path="/ExamQuries" element={<ExamQuries />} />
-      <Route path="/RequestHistory" element={<RequestHistory />} />
+      <Route path="/Exam-Quries" element={<ExamQuries />} />
+      <Route path="/Request-History" element={<RequestHistory />} />
     </Routes>
   );
 };
