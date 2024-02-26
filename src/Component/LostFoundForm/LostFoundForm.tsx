@@ -3,8 +3,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { PhotoIcon } from "@heroicons/react/20/solid";
-import { RadioGroup, Radio, Button } from "@nextui-org/react";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  RadioGroup,
+  Radio,
+  Button,
+} from "@nextui-org/react";
 import { useEffect } from "react";
+import { FaCircleQuestion } from "react-icons/fa6";
 
 const schema = z.object({
   reportType: z.enum(["Lost Item", "Found Item"]),
@@ -61,15 +69,60 @@ const LostFoundForm = ({}: Props) => {
         Lost and Found Reporting
       </h2>
       <div className="bg-[#ff607d] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
-          <p className="text-sm text-center mx-28 mb-4">
-            Lost something on campus? We're here to help. Use this form to
-            report any items you've lost or found on campus. Our Lost and Found
-            team will assist in reuniting items with their rightful owners.
-          </p>
-          <div className="flex flex-col items-center justify-center mt-4 mb-8">
-            <div className="w-[90%] border-t border-gray-400 mx-auto"></div>
-          </div>
+        <div className="relative bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
+          <Popover
+            showArrow
+            offset={10}
+            backdrop="blur"
+            placement="left"
+            motionProps={{
+              variants: {
+                enter: {
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    opacity: {
+                      duration: 0.15,
+                    },
+                  },
+                },
+                exit: {
+                  y: "10%",
+                  opacity: 0,
+                  transition: {
+                    opacity: {
+                      duration: 0.1,
+                    },
+                  },
+                },
+              },
+            }}
+          >
+            <PopoverTrigger>
+              <Button
+                isIconOnly
+                radius="full"
+                variant="light"
+                className="absolute top-5 right-8 "
+              >
+                <FaCircleQuestion className="w-5 h-5 text-slate-800" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <div className="w-96 px-4 py-4">
+                <div className="text-small font-bold text-slate-800">
+                  Lost and Found Reporting
+                </div>
+                <div className="text-tiny text-slate-600">
+                  Lost something on campus? We're here to help. Use this form to
+                  report any items you've lost or found on campus. Our Lost and
+                  Found team will assist in reuniting items with their rightful
+                  owners.
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
+
           <form onSubmit={handleSubmit(submitData)} className="space-y-4">
             <div className="flex items-center mb-4">
               <p className="font-semibold text-red-500 mx-4">I am Reporting:</p>
