@@ -31,7 +31,7 @@ const LogIn = () => {
   let navigate = useNavigate();
 
   const handleLoginClick = () => {
-    navigate("/Log-In");
+    navigate("/Home");
   };
 
   useEffect(() => {
@@ -130,7 +130,7 @@ const LogIn = () => {
                 variant="flat"
                 className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md"
               >
-                Sign up
+                Log In
               </Button>
               <p className="text-center text-sm mt-2">
                 Register?{" "}
