@@ -101,7 +101,7 @@ const DegreeForm = ({}: Props) => {
             <PopoverContent>
               <div className="w-96 px-4 py-4">
                 <div className="text-small font-bold text-slate-800">
-                  Degree Clearance
+                  Degree Clearance Application
                 </div>
                 <div className="text-tiny text-slate-600">
                   Welcome to the Degree Clearance application portal. Here, you
