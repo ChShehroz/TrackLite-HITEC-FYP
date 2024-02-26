@@ -4,8 +4,16 @@ import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
-import { RadioGroup, Radio, Button } from "@nextui-org/react";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  RadioGroup,
+  Radio,
+  Button,
+} from "@nextui-org/react";
 import { useEffect } from "react";
+import { FaCircleQuestion } from "react-icons/fa6";
 
 const schema = z.object({
   queryType: z.enum(["Apply for 'I' Grade", "Request Exam Recheck"]),
@@ -63,16 +71,60 @@ const ExamQuriesForm = ({}: Props) => {
         Exam Query Assistance
       </h2>
       <div className="bg-[#ff7d60] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
-          <p className="text-sm text-center mx-24 mb-4">
-            Need help with exam-related issues? Whether it's applying for an
-            Incomplete grade or requesting an exam recheck, we're here to
-            support you through the process. Use this form to submit your exam
-            queries and we will guide you accordingly.
-          </p>
-          <div className="flex flex-col items-center justify-center mt-4 mb-8">
-            <div className="w-[90%] border-t border-gray-400 mx-auto"></div>
-          </div>
+        <div className="relative bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
+          <Popover
+            showArrow
+            offset={10}
+            backdrop="blur"
+            placement="left"
+            motionProps={{
+              variants: {
+                enter: {
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    opacity: {
+                      duration: 0.15,
+                    },
+                  },
+                },
+                exit: {
+                  y: "10%",
+                  opacity: 0,
+                  transition: {
+                    opacity: {
+                      duration: 0.1,
+                    },
+                  },
+                },
+              },
+            }}
+          >
+            <PopoverTrigger>
+              <Button
+                isIconOnly
+                radius="full"
+                variant="light"
+                className="absolute top-5 right-8 "
+              >
+                <FaCircleQuestion className="w-5 h-5 text-slate-800" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <div className="w-96 px-4 py-4">
+                <div className="text-small font-bold text-slate-800">
+                  Degree Clearance
+                </div>
+                <div className="text-tiny text-slate-600">
+                  Need help with exam-related issues? Whether it's applying for
+                  an Incomplete grade or requesting an exam recheck, we're here
+                  to support you through the process. Use this form to submit
+                  your exam queries and we will guide you accordingly.
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
+
           <form onSubmit={handleSubmit(submitData)} className="space-y-4">
             <div className="flex items-center mb-4">
               <p className="font-semibold mx-4">Type of Query</p>
