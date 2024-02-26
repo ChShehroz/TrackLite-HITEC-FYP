@@ -17,7 +17,7 @@ const MySlider: React.FC = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 5000,
     fade: true,
   };
 
