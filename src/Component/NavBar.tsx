@@ -38,7 +38,7 @@ const NavBar = () => {
     <Navbar
       shouldHideOnScroll
       maxWidth="full"
-      className="bg-[#FEF6D6] px-4 pt-2 pb-2"
+      className="bg-[#FEF6D6] px-4 pt-2 pb-2 shadow-md"
     >
       <NavbarBrand>
         <img src={Logo} alt="Logo" className="h-11" />
