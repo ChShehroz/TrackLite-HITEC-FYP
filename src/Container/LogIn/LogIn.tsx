@@ -128,7 +128,7 @@ const LogIn = () => {
                 onClick={handleLoginClick}
                 radius="full"
                 variant="flat"
-                className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md"
+                className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md  focus:outline-none focus:ring-2 focus:ring-slate-400"
               >
                 Log In
               </Button>

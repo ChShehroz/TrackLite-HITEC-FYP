@@ -6,6 +6,7 @@ import styles from "../Slider/Slider.module.css";
 import Degree from "../../assets/Images/graduation.png";
 import complain from "../../assets/Images/complain.png";
 import { Link } from "react-router-dom";
+import { Button } from "@nextui-org/react";
 
 const MySlider: React.FC = () => {
   const settings: Settings = {
@@ -40,9 +41,13 @@ const MySlider: React.FC = () => {
                 accomplishments with our comprehensive online clearance system.
               </p>
               <Link to={"/DegreeApplication"}>
-                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">
+                <Button
+                  radius="full"
+                  variant="flat"
+                  className="px-6 py-2 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg  focus:outline-none focus:ring-2 focus:ring-slate-400"
+                >
                   Approve Your Degree
-                </button>
+                </Button>
               </Link>
             </div>
             <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] to-[#FCF9E0] shadow-lg bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
@@ -71,9 +76,13 @@ const MySlider: React.FC = () => {
                 here.
               </p>
               <Link to={"/Complaints"}>
-                <button className="bg-black text-white px-6 py-2 rounded-full shadow-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-opacity-50">
+                <Button
+                  radius="full"
+                  variant="flat"
+                  className="px-6 py-2 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg  focus:outline-none focus:ring-2 focus:ring-slate-400"
+                >
                   Submit a Complaint
-                </button>
+                </Button>
               </Link>
             </div>
             <div className="flex-shrink-0 bg-gradient-to-b from-[#CB97E7] shadow-lg to-[#FCF9E0] bg-opacity-80 border-2 border-[#EE844E] rounded-full p-10">
