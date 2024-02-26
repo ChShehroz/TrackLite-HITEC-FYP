@@ -2,6 +2,13 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  Button,
+} from "@nextui-org/react";
+import { FaCircleQuestion } from "react-icons/fa6";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required."),
@@ -49,16 +56,59 @@ const ComplaintForm = ({}: Props) => {
         Submit a Complaint
       </h2>
       <div className="bg-[#ace797] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
-          <p className="text-sm text-center mx-24 mb-6">
-            Your voice matters to us. If you've encountered any issues or have
-            concerns regarding campus life, academics, or services, please let
-            us know. This form allows you to report and submit a complaint which
-            will be promptly addressed by our team.
-          </p>
-          <div className="flex flex-col items-center justify-center mt-4 mb-8">
-            <div className="w-[90%] border-t border-gray-400 mx-auto"></div>
-          </div>
+        <div className="relative bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full ">
+          <Popover
+            showArrow
+            offset={10}
+            backdrop="blur"
+            placement="left"
+            motionProps={{
+              variants: {
+                enter: {
+                  y: 0,
+                  opacity: 1,
+                  transition: {
+                    opacity: {
+                      duration: 0.15,
+                    },
+                  },
+                },
+                exit: {
+                  y: "10%",
+                  opacity: 0,
+                  transition: {
+                    opacity: {
+                      duration: 0.1,
+                    },
+                  },
+                },
+              },
+            }}
+          >
+            <PopoverTrigger>
+              <Button
+                isIconOnly
+                radius="full"
+                variant="light"
+                className="absolute top-5 right-8 "
+              >
+                <FaCircleQuestion className="w-5 h-5 text-slate-800" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <div className="w-96 px-4 py-4">
+                <div className="text-small font-bold text-slate-800">
+                  Degree Clearance
+                </div>
+                <div className="text-tiny text-slate-600">
+                  Your voice matters to us. If you've encountered any issues or
+                  have concerns regarding campus life, academics, or services,
+                  please let us know. This form allows you to report and submit
+                  a complaint which will be promptly addressed by our team.
+                </div>
+              </div>
+            </PopoverContent>
+          </Popover>
           <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
