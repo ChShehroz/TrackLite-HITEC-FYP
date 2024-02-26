@@ -56,7 +56,7 @@ const ComplaintForm = ({}: Props) => {
         Submit a Complaint
       </h2>
       <div className="bg-[#ace797] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="relative bg-[#EFE7CD] p-12 rounded-t-2xl rounded-b-3xl max-w-4xl w-full ">
+        <div className="relative bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full ">
           <Popover
             showArrow
             offset={10}
