@@ -4,6 +4,8 @@ import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
+import { RadioGroup, Radio } from "@nextui-org/react";
+import { useEffect } from "react";
 
 const schema = z.object({
   queryType: z.enum(["Apply for 'I' Grade", "Request Exam Recheck"]),
@@ -51,6 +53,10 @@ const ExamQuriesForm = ({}: Props) => {
   const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
+  useEffect(() => {
+    document.title = "Exam-Quries";
+  });
+
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-3xl text-[#545454] font-semibold my-10">
@@ -74,31 +80,27 @@ const ExamQuriesForm = ({}: Props) => {
                 name="queryType"
                 control={control}
                 render={({ field }) => (
-                  <div className="flex items-center space-x-4">
-                    <label className="flex items-center space-x-2">
-                      <input
+                  <div className="flex space-x-4">
+                    <RadioGroup orientation="horizontal">
+                      <Radio
                         {...register("queryType")}
                         type="radio"
                         value="Apply for 'I' Grade"
                         checked={field.value === "Apply for 'I' Grade"}
-                        className="form-radio h-5 w-5 text-blue-600 border-gray-300"
-                      />
-                      <span className="text-sm font-medium">
+                        className="form-radio text-blue-600 border-gray-300"
+                      >
                         Apply for 'I' Grade
-                      </span>
-                    </label>
-                    <label className="flex items-center space-x-2">
-                      <input
+                      </Radio>
+                      <Radio
                         {...register("queryType")}
                         type="radio"
                         value="Request Exam Recheck"
                         checked={field.value === "Request Exam Recheck"}
-                        className="form-radio h-5 w-5 text-blue-600 border-gray-300"
-                      />
-                      <span className="text-sm font-medium">
+                        className="form-radio text-blue-600 border-gray-300"
+                      >
                         Request Exam Recheck
-                      </span>
-                    </label>
+                      </Radio>
+                    </RadioGroup>
                   </div>
                 )}
               />
