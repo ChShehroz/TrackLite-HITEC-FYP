@@ -12,7 +12,6 @@ import {
   Radio,
   Button,
 } from "@nextui-org/react";
-import { useEffect } from "react";
 import { FaCircleQuestion } from "react-icons/fa6";
 
 const schema = z.object({
@@ -60,10 +59,6 @@ const ExamQuriesForm = ({}: Props) => {
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
   const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
-
-  useEffect(() => {
-    document.title = "Exam-Quries";
-  });
 
   return (
     <div className="flex flex-col items-center">

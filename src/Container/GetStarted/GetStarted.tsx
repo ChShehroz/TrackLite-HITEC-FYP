@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import { Button } from "@nextui-org/react";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import Logo from "../../assets/Images/LogoRemovebg.png";
+import { useEffect } from "react";
 
 const GetStarted = () => {
+  useEffect(() => {
+    document.title = "TrackLite HITEC | Get-Started";
+  });
+
   return (
     <>
       <div className="relative text-center">

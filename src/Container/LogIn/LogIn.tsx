@@ -35,7 +35,7 @@ const LogIn = () => {
   };
 
   useEffect(() => {
-    document.title = "Log-In";
+    document.title = "TrackLite HITEC | Log-In";
   });
 
   const [isVisible, setIsVisible] = React.useState(false);

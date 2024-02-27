@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ExamQuriesForm from "../../Component/ExamQuries/ExamQuriesForm";
 import Footer from "../../Component/Footer";
 import NavBar from "../../Component/NavBar";
@@ -17,6 +18,11 @@ const ExamQuries = () => {
     // Perform some action with the form data
     console.log(data);
   };
+
+  useEffect(() => {
+    document.title = "Exam-Quries";
+  });
+
   return (
     <>
       <NavBar />
