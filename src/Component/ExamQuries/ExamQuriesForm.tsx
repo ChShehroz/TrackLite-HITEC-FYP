@@ -62,7 +62,7 @@ const ExamQuriesForm = ({}: Props) => {
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-3xl text-[#545454] font-semibold my-10">
+      <h2 className="text-3xl text-slate-800 font-semibold my-10">
         Exam Query Assistance
       </h2>
       <div className="bg-[#ff7d60] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
