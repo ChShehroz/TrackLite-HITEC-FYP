@@ -1,11 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import React, { useEffect, useState } from "react";
-import { Button, Input } from "@nextui-org/react";
+import {
+  Button,
+  ButtonGroup,
+  Input,
+  Select,
+  SelectItem,
+} from "@nextui-org/react";
 import { RiEyeFill } from "react-icons/ri";
 import { RiEyeOffFill } from "react-icons/ri";
 import { TbMailFilled } from "react-icons/tb";
-import { FcDepartment } from "react-icons/fc";
+import { departments } from "./Department";
 
 interface FormState {
   email: string;
@@ -67,34 +73,24 @@ const SignUp = () => {
                     type="email"
                     label="Email"
                     labelPlacement="outside"
-                    radius="full"
+                    size="sm"
+                    variant="underlined"
                     onChange={handleInputChange}
                     endContent={
-                      <TbMailFilled className="text-2xl text-slate-600 pointer-events-none flex-shrink-0" />
+                      <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
                     }
                     classNames={{
-                      inputWrapper: [
-                        "shadow-sm",
-                        "bg-default-200/70",
-                        "backdrop-blur-lg",
-                        "backdrop-saturate-200",
-                        "hover:bg-default-200/80",
-                        "group-data-[focused=true]:bg-default-200/75",
-                        "text-slate-500",
-                        "border",
-                        "border-slate-400",
-                      ],
-                      input: ["bg-transparent", "text-slate-500"],
-                      label: ["text-slate-600", "ml-1", "pl-3"],
+                      label: ["text-slate-800", "text-sm"],
                     }}
                   />
                 </div>
 
-                <div className="mb-3 mt-8">
+                <div className="mb-3 mt-10">
                   <Input
                     label="Password"
                     labelPlacement="outside"
-                    radius="full"
+                    size="sm"
+                    variant="underlined"
                     onChange={handleInputChange}
                     endContent={
                       <button
@@ -103,91 +99,68 @@ const SignUp = () => {
                         onClick={toggleVisibility}
                       >
                         {isVisible ? (
-                          <RiEyeOffFill className="text-2xl text-slate-600 pointer-events-none" />
+                          <RiEyeOffFill className="text-2xl text-slate-400 mr-1 pointer-events-none" />
                         ) : (
-                          <RiEyeFill className="text-2xl text-slate-600 pointer-events-none" />
+                          <RiEyeFill className="text-2xl text-slate-400 mr-1 pointer-events-none" />
                         )}
                       </button>
                     }
                     type={isVisible ? "text" : "password"}
-                    classNames={{
-                      inputWrapper: [
-                        "shadow-sm",
-                        "bg-default-200/70",
-                        "backdrop-blur-lg",
-                        "backdrop-saturate-200",
-                        "hover:bg-default-200/80",
-                        "group-data-[focused=true]:bg-default-200/75",
-                        "text-slate-500",
-                        "border",
-                        "border-slate-400",
-                      ],
-                      input: ["bg-transparent", "text-slate-500"],
-                      label: ["text-slate-600", "ml-1", "pl-3"],
-                    }}
                   />
                 </div>
-                <div className="mb-3 mt-8">
-                  <Input
-                    type="department"
+                <div className="mb-3 mt-10">
+                  <Select
                     label="Department"
                     labelPlacement="outside"
-                    radius="full"
-                    onChange={handleInputChange}
-                    endContent={
-                      <FcDepartment className="text-2xl text-slate-600 pointer-events-none flex-shrink-0" />
-                    }
-                    classNames={{
-                      inputWrapper: [
-                        "shadow-sm",
-                        "bg-default-200/70",
-                        "backdrop-blur-lg",
-                        "backdrop-saturate-200",
-                        "hover:bg-default-200/80",
-                        "group-data-[focused=true]:bg-default-200/75",
-                        "text-slate-500",
-                        "border",
-                        "border-slate-400",
-                      ],
-                      input: ["bg-transparent", "text-slate-500"],
-                      label: ["text-slate-600", "ml-1", "pl-3"],
-                    }}
-                  />
+                    size="sm"
+                    variant="underlined"
+                    classNames={{ listbox: "h-40" }}
+                  >
+                    {departments.map((dept) => (
+                      <SelectItem key={dept.id} value={dept.name}>
+                        {dept.name}
+                      </SelectItem>
+                    ))}
+                  </Select>
                 </div>
                 <div className="mb-6">
                   <label
-                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
+                    className="block text-slate-600 text-sm text-left font-medium ml-4 mb-1"
                     htmlFor="user type"
                   >
                     User type
                   </label>
                   <div className="w-full text-left">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setFormState({ ...formState, userType: "faculty" })
-                      }
-                      className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
-                        formState.userType === "faculty"
-                          ? "bg-slate-800 text-white"
-                          : "border text-slate-800"
-                      } mr-2`}
-                    >
-                      Faculty
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setFormState({ ...formState, userType: "student" })
-                      }
-                      className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
-                        formState.userType === "student"
-                          ? "bg-slate-800 text-white"
-                          : "border text-slate-800"
-                      }`}
-                    >
-                      Student
-                    </button>
+                    <ButtonGroup radius="full">
+                      <Button
+                        type="button"
+                        size="sm"
+                        onClick={() =>
+                          setFormState({ ...formState, userType: "faculty" })
+                        }
+                        className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
+                          formState.userType === "faculty"
+                            ? "bg-slate-800 text-white"
+                            : "border text-slate-800"
+                        } mr-2`}
+                      >
+                        Faculty
+                      </Button>
+                      <Button
+                        type="button"
+                        size="sm"
+                        onClick={() =>
+                          setFormState({ ...formState, userType: "student" })
+                        }
+                        className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
+                          formState.userType === "student"
+                            ? "bg-slate-800 text-white"
+                            : "border text-slate-800"
+                        }`}
+                      >
+                        Student
+                      </Button>
+                    </ButtonGroup>
                   </div>
                 </div>
 
