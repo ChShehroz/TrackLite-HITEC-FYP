@@ -9,7 +9,8 @@ import {
   Button,
   Input,
 } from "@nextui-org/react";
-import { FaCircleQuestion } from "react-icons/fa6";
+import { FaCircleQuestion, FaPhone } from "react-icons/fa6";
+import { TbMailFilled } from "react-icons/tb";
 
 const schema = z.object({
   studentName: z.string().min(1, "Student's name is required."),
@@ -49,10 +50,8 @@ const DegreeForm = ({}: Props) => {
     console.log(data);
     reset();
   };
-  const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
-  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
   return (
     <div className="flex flex-col items-center">
@@ -172,16 +171,17 @@ const DegreeForm = ({}: Props) => {
               </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full md:w-1/2 px-3">
-                <label className={formLabel} htmlFor="semester">
-                  Semester
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3">
+                <Input
                   {...register("semester")}
-                  type="text"
-                  id="semester"
-                  placeholder="Enter the current semester"
-                  className={formInputStyle}
+                  type="semester"
+                  label="Semester"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.semester && (
                   <span className="text-red-500 text-xs">
@@ -189,35 +189,41 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="w-2/3">
-              <label className={formLabel} htmlFor="email">
-                Email Address
-              </label>
-              <input
-                {...register("email")}
-                type="email"
-                id="email"
-                placeholder="Enter your email address"
-                className={formInputStyle}
-              />
-              {errors.email && (
-                <span className="text-red-500 text-xs">
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="phone">
-                  Phone Number
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3">
+                <Input
+                  {...register("email")}
+                  type="email"
+                  label="Email Address"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-xs">
+                    {errors.email.message}
+                  </span>
+                )}
+              </div>
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("phone")}
-                  type="tel"
-                  id="phone"
-                  placeholder="Enter your phone number"
-                  className={formInputStyle}
+                  type="phone"
+                  label="Phone Number"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <FaPhone className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
                 />
                 {errors.phone && (
                   <span className="text-red-500 text-xs">
@@ -225,16 +231,20 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 px-3">
-                <label className={formLabel} htmlFor="reasonForLeaving">
-                  Reason for Leaving
-                </label>
-                <input
+            </div>
+
+            <div className="flex flex-wrap -mx-3 pb-10 mb-10">
+              <div className="w-full md:w-1/3 px-3">
+                <Input
                   {...register("reasonForLeaving")}
-                  type="text"
-                  id="reasonForLeaving"
-                  placeholder="Specify the reason for leaving"
-                  className={formInputStyle}
+                  type="reasonForLeaving"
+                  label="Reason for Leaving"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.reasonForLeaving && (
                   <span className="text-red-500 text-xs">
@@ -242,23 +252,24 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="pb-6">
-              <label className={formLabel} htmlFor="postalAddress">
-                Postal Address
-              </label>
-              <input
-                {...register("postalAddress")}
-                type="text"
-                id="postalAddress"
-                placeholder="Enter your postal address"
-                className={formInputStyle}
-              />
-              {errors.postalAddress && (
-                <span className="text-red-500 text-xs">
-                  {errors.postalAddress.message}
-                </span>
-              )}
+              <div className="w-full md:w-2/3 px-3">
+                <Input
+                  {...register("postalAddress")}
+                  type="postalAddress"
+                  label="Postal Address"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                />
+                {errors.postalAddress && (
+                  <span className="text-red-500 text-xs">
+                    {errors.postalAddress.message}
+                  </span>
+                )}
+              </div>
             </div>
 
             <div className="flex justify-end gap-3 mt-6">
