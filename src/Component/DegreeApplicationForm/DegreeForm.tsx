@@ -7,6 +7,7 @@ import {
   PopoverTrigger,
   PopoverContent,
   Button,
+  Input,
 } from "@nextui-org/react";
 import { FaCircleQuestion } from "react-icons/fa6";
 
@@ -59,7 +60,7 @@ const DegreeForm = ({}: Props) => {
         Degree Clearance Application
       </h2>
       <div className="bg-[#CB97E7] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="relative bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
+        <div className="relative bg-gradient-to-b from-[#f0e8c9] via-[#fffdf6] bg-[#fffdf6] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
           <Popover
             showArrow
             offset={10}
@@ -115,16 +116,17 @@ const DegreeForm = ({}: Props) => {
 
           <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="studentName">
-                  Student's Name
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("studentName")}
-                  id="studentName"
-                  type="text"
-                  placeholder="Enter the student's name"
-                  className={formInputStyle}
+                  type="studentname"
+                  label="Student's Name"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.studentName && (
                   <span className="text-red-500 text-xs">
@@ -132,16 +134,17 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 px-3">
-                <label className={formLabel} htmlFor="fatherName">
-                  Father's Name
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3">
+                <Input
                   {...register("fatherName")}
-                  id="fatherName"
-                  type="text"
-                  placeholder="Enter the father's name"
-                  className={formInputStyle}
+                  type="fatherName"
+                  label="Father's Name"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.fatherName && (
                   <span className="text-red-500 text-xs">
@@ -149,18 +152,17 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="rollNo">
-                  Roll Number
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("rollNo")}
-                  type="text"
-                  id="rollNo"
-                  placeholder="Enter your roll number"
-                  className={formInputStyle}
+                  type="rollNo"
+                  label="Roll Number"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.rollNo && (
                   <span className="text-red-500 text-xs">
@@ -168,6 +170,8 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
+            </div>
+            <div className="flex flex-wrap -mx-3 mb-2">
               <div className="w-full md:w-1/2 px-3">
                 <label className={formLabel} htmlFor="semester">
                   Semester
