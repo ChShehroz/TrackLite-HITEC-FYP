@@ -92,6 +92,9 @@ const SignUp = () => {
                     size="sm"
                     variant="underlined"
                     onChange={handleInputChange}
+                    classNames={{
+                      label: ["text-slate-800", "text-sm"],
+                    }}
                     endContent={
                       <button
                         className="focus:outline-none"
@@ -114,7 +117,10 @@ const SignUp = () => {
                     labelPlacement="outside"
                     size="sm"
                     variant="underlined"
-                    classNames={{ listbox: "h-40" }}
+                    classNames={{
+                      label: ["text-slate-800", "text-sm"],
+                      listbox: "h-40",
+                    }}
                   >
                     {departments.map((dept) => (
                       <SelectItem key={dept.id} value={dept.name}>
@@ -141,7 +147,7 @@ const SignUp = () => {
                         className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
                           formState.userType === "faculty"
                             ? "bg-slate-800 text-white"
-                            : "border text-slate-800"
+                            : "text-slate-800"
                         } mr-2`}
                       >
                         Faculty
@@ -155,7 +161,7 @@ const SignUp = () => {
                         className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
                           formState.userType === "student"
                             ? "bg-slate-800 text-white"
-                            : "border text-slate-800"
+                            : "text-slate-800"
                         }`}
                       >
                         Student
