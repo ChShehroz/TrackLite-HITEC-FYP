@@ -44,7 +44,8 @@ const MySlider: React.FC = () => {
                 <Button
                   radius="full"
                   variant="flat"
-                  className="px-6 py-2 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg  focus:outline-none focus:ring-2 focus:ring-slate-400"
+                  color="default"
+                  className="px-6 py-2 flex items-center text-sm space-x-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400"
                 >
                   Approve Your Degree
                 </Button>
