@@ -55,30 +55,19 @@ const LogIn = () => {
               Please enter your Details
             </p>
             <form onSubmit={handleSubmit}>
-              <div className="mb-10">
+              <div className="mb-12">
                 <Input
                   type="email"
                   label="Email"
                   labelPlacement="outside"
-                  radius="full"
+                  size="sm"
+                  variant="underlined"
                   onChange={handleInputChange}
                   endContent={
-                    <TbMailFilled className="text-2xl text-slate-600 pointer-events-none flex-shrink-0" />
+                    <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
                   }
                   classNames={{
-                    inputWrapper: [
-                      "shadow-sm",
-                      "bg-default-200/70",
-                      "backdrop-blur-lg",
-                      "backdrop-saturate-200",
-                      "hover:bg-default-200/80",
-                      "group-data-[focused=true]:bg-default-200/75",
-                      "text-slate-500",
-                      "border",
-                      "border-slate-400",
-                    ],
-                    input: ["bg-transparent", "text-slate-500"],
-                    label: ["text-slate-600", "ml-1", "pl-3"],
+                    label: ["text-slate-800", "text-sm"],
                   }}
                 />
               </div>
@@ -87,7 +76,8 @@ const LogIn = () => {
                 <Input
                   label="Password"
                   labelPlacement="outside"
-                  radius="full"
+                  size="sm"
+                  variant="underlined"
                   onChange={handleInputChange}
                   endContent={
                     <button
@@ -96,31 +86,19 @@ const LogIn = () => {
                       onClick={toggleVisibility}
                     >
                       {isVisible ? (
-                        <RiEyeOffFill className="text-2xl text-slate-600 pointer-events-none" />
+                        <RiEyeOffFill className="text-2xl text-slate-400 mr-1 pointer-events-none" />
                       ) : (
-                        <RiEyeFill className="text-2xl text-slate-600 pointer-events-none" />
+                        <RiEyeFill className="text-2xl text-slate-400 mr-1 pointer-events-none" />
                       )}
                     </button>
                   }
                   type={isVisible ? "text" : "password"}
                   classNames={{
-                    inputWrapper: [
-                      "shadow-sm",
-                      "bg-default-200/70",
-                      "backdrop-blur-lg",
-                      "backdrop-saturate-200",
-                      "hover:bg-default-200/80",
-                      "group-data-[focused=true]:bg-default-200/75",
-                      "text-slate-500",
-                      "border",
-                      "border-slate-400",
-                    ],
-                    input: ["bg-transparent", "text-slate-500"],
-                    label: ["text-slate-600", "ml-1", "pl-3"],
+                    label: ["text-slate-800", "text-sm"],
                   }}
                 />
               </div>
-              <div className="text-right mb-8">
+              <div className="text-right mb-12">
                 <a className="text-sm text-blue-500 hover:underline cursor-pointer">
                   Forgot password?
                 </a>
