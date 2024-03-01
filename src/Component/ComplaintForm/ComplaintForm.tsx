@@ -7,8 +7,11 @@ import {
   PopoverTrigger,
   PopoverContent,
   Button,
+  Input,
+  Textarea,
 } from "@nextui-org/react";
 import { FaCircleQuestion } from "react-icons/fa6";
+import { TbMailFilled } from "react-icons/tb";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required."),
@@ -44,11 +47,8 @@ const ComplaintForm = ({}: Props) => {
     reset();
   };
 
-  const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
-  const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
-  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
   return (
     <div className="flex flex-col items-center">
@@ -56,7 +56,7 @@ const ComplaintForm = ({}: Props) => {
         Submit a Complaint
       </h2>
       <div className="bg-[#ace797] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="relative bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full ">
+        <div className="relative bg-gradient-to-b from-[#f0e8c9] via-[#fffdf6] bg-[#fffdf6] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full ">
           <Popover
             showArrow
             offset={10}
@@ -111,16 +111,17 @@ const ComplaintForm = ({}: Props) => {
           </Popover>
           <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="name">
-                  Name
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("name")}
-                  id="name"
-                  type="text"
-                  placeholder="Enter your name"
-                  className={formInputStyle}
+                  type="name"
+                  label="Name"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.name && (
                   <span className="text-red-500 text-xs">
@@ -128,16 +129,17 @@ const ComplaintForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 px-3">
-                <label className={formLabel} htmlFor="complaintNature">
-                  Nature of Complaint
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3">
+                <Input
                   {...register("complaintNature")}
-                  id="complaintNature"
-                  type="text"
-                  placeholder="Enter the nature of complaint"
-                  className={formInputStyle}
+                  type="complaintNature"
+                  label="Nature of Complaint"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.complaintNature && (
                   <span className="text-red-500 text-xs">
@@ -145,38 +147,42 @@ const ComplaintForm = ({}: Props) => {
                   </span>
                 )}
               </div>
+              <div className="w-full md:w-1/3 px-3">
+                <Input
+                  {...register("email")}
+                  type="email"
+                  label="Email Address"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-xs">
+                    {errors.email.message}
+                  </span>
+                )}
+              </div>
             </div>
 
-            <div className="w-2/3">
-              <label className={formLabel} htmlFor="email">
-                Email Address
-              </label>
-              <input
-                {...register("email")}
-                type="email"
-                id="email"
-                placeholder="Enter your email address"
-                className={formInputStyle}
-              />
-              {errors.email && (
-                <span className="text-red-500 text-xs">
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-            <div className="w-full md:w-1/2 mb-6 md:mb-0">
-              <label className={formLabel} htmlFor="issueDescription">
-                Detailed Description of the Issue
-              </label>
-              <textarea
+            <div className="w-full mb-6 pb-6 md:mb-0">
+              <Textarea
                 {...register("issueDescription")}
-                name="issueDescription"
-                id="issueDescription"
-                rows={5}
-                className={textAreaStyle}
-                placeholder="Describe the issue in detail"
-                defaultValue={""}
-              ></textarea>
+                type="issueDescription"
+                label="Description"
+                labelPlacement="outside"
+                placeholder="Detailed Description of the Issue"
+                size="sm"
+                variant="underlined"
+                classNames={{
+                  label: ["text-slate-800", "text-sm"],
+                }}
+              ></Textarea>
               {errors.issueDescription && (
                 <span className="text-red-500 text-xs">
                   {errors.issueDescription.message}
