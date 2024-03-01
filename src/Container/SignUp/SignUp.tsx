@@ -1,11 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
-import DropDown from "../../Component/DropDown";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import React, { useEffect, useState } from "react";
 import { Button, Input } from "@nextui-org/react";
 import { RiEyeFill } from "react-icons/ri";
 import { RiEyeOffFill } from "react-icons/ri";
 import { TbMailFilled } from "react-icons/tb";
+import { FcDepartment } from "react-icons/fc";
 
 interface FormState {
   email: string;
@@ -127,14 +127,32 @@ const SignUp = () => {
                     }}
                   />
                 </div>
-                <div className="mb-3 gap-2">
-                  <label
-                    className="block text-gray-700 text-sm text-left font-medium ml-4 mb-1"
-                    htmlFor="department"
-                  >
-                    Department
-                  </label>
-                  <DropDown />
+                <div className="mb-3 mt-8">
+                  <Input
+                    type="department"
+                    label="Department"
+                    labelPlacement="outside"
+                    radius="full"
+                    onChange={handleInputChange}
+                    endContent={
+                      <FcDepartment className="text-2xl text-slate-600 pointer-events-none flex-shrink-0" />
+                    }
+                    classNames={{
+                      inputWrapper: [
+                        "shadow-sm",
+                        "bg-default-200/70",
+                        "backdrop-blur-lg",
+                        "backdrop-saturate-200",
+                        "hover:bg-default-200/80",
+                        "group-data-[focused=true]:bg-default-200/75",
+                        "text-slate-500",
+                        "border",
+                        "border-slate-400",
+                      ],
+                      input: ["bg-transparent", "text-slate-500"],
+                      label: ["text-slate-600", "ml-1", "pl-3"],
+                    }}
+                  />
                 </div>
                 <div className="mb-6">
                   <label
@@ -151,8 +169,8 @@ const SignUp = () => {
                       }
                       className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
                         formState.userType === "faculty"
-                          ? "bg-black text-white"
-                          : "border text-black"
+                          ? "bg-slate-800 text-white"
+                          : "border text-slate-800"
                       } mr-2`}
                     >
                       Faculty
@@ -164,8 +182,8 @@ const SignUp = () => {
                       }
                       className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
                         formState.userType === "student"
-                          ? "bg-black text-white"
-                          : "border text-black"
+                          ? "bg-slate-800 text-white"
+                          : "border text-slate-800"
                       }`}
                     >
                       Student
