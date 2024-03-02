@@ -271,6 +271,7 @@ const ExamQuriesForm = ({}: Props) => {
                 <Input
                   {...register("file")}
                   type="file"
+                  id="file-upload"
                   label="Supporting Documents (optional)"
                   labelPlacement="outside"
                   size="sm"
@@ -279,7 +280,7 @@ const ExamQuriesForm = ({}: Props) => {
                   onChange={(e) => {
                     register("file").onChange(e);
                   }}
-                  endContent={
+                  startContent={
                     <FaUpload
                       className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0"
                       onClick={() =>
@@ -292,7 +293,7 @@ const ExamQuriesForm = ({}: Props) => {
                   }}
                 />
               </div>
-              <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+              <div className="w-full px-3 mb-6 md:mt-5">
                 <Textarea
                   {...register("reason")}
                   type="reaason"
