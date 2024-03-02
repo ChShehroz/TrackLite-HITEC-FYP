@@ -108,7 +108,7 @@ const LostFoundForm = ({}: Props) => {
                 isIconOnly
                 radius="full"
                 variant="light"
-                className="absolute top-5 right-8 "
+                className="absolute top-5 right-8"
               >
                 <FaCircleQuestion className="w-5 h-5 text-slate-800" />
               </Button>
@@ -130,7 +130,7 @@ const LostFoundForm = ({}: Props) => {
 
           <form onSubmit={handleSubmit(submitData)} className="space-y-4">
             <div className="flex items-center mb-4">
-              <p className="font-semibold text-red-500 mx-4">I am Reporting:</p>
+              <p className="font-semibold text-red-500 mr-4">I am Reporting:</p>
               <Controller
                 name="reportType"
                 control={control}
