@@ -10,9 +10,11 @@ import {
   RadioGroup,
   Radio,
   Button,
+  Input,
 } from "@nextui-org/react";
 import { useEffect } from "react";
-import { FaCircleQuestion } from "react-icons/fa6";
+import { FaCircleQuestion, FaPhone } from "react-icons/fa6";
+import { TbMailFilled } from "react-icons/tb";
 
 const schema = z.object({
   reportType: z.enum(["Lost Item", "Found Item"]),
@@ -69,7 +71,7 @@ const LostFoundForm = ({}: Props) => {
         Lost and Found Reporting
       </h2>
       <div className="bg-[#ff607d] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="relative bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
+        <div className="relative bg-gradient-to-b from-[#f0e8c9] via-[#fffdf6] bg-[#fffdf6] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
           <Popover
             showArrow
             offset={10}
@@ -155,17 +157,18 @@ const LostFoundForm = ({}: Props) => {
                 )}
               />
             </div>
-            <div className="flex space-x-4">
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="studentName">
-                  Name
-                </label>
-                <input
+            <div className="flex flex-wrap -mx-3 mb-2">
+              <div className="w-full md:w-1/3 px-3 mb-60 md:mb-5">
+                <Input
                   {...register("name")}
-                  id="studentName"
-                  type="text"
-                  placeholder="Enter your name"
-                  className={formInputStyle}
+                  type="studentname"
+                  label="Student's Name"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.name && (
                   <span className="text-red-500 text-xs">
@@ -173,16 +176,20 @@ const LostFoundForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="phone">
-                  Phone Number
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("phone")}
-                  type="tel"
-                  id="phone"
-                  placeholder="Enter your phone number"
-                  className={formInputStyle}
+                  type="phone"
+                  label="Phone Number"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <FaPhone className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
                 />
                 {errors.phone && (
                   <span className="text-red-500 text-xs">
@@ -192,15 +199,19 @@ const LostFoundForm = ({}: Props) => {
               </div>
             </div>
             <div className="w-2/3">
-              <label className={formLabel} htmlFor="email">
-                Email Address
-              </label>
-              <input
+              <Input
                 {...register("email")}
                 type="email"
-                id="email"
-                placeholder="Enter your email address"
-                className={formInputStyle}
+                label="Email Address"
+                labelPlacement="outside"
+                size="sm"
+                variant="underlined"
+                classNames={{
+                  label: ["text-slate-800", "text-sm"],
+                }}
+                endContent={
+                  <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                }
               />
               {errors.email && (
                 <span className="text-red-500 text-xs">
