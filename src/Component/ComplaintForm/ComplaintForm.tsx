@@ -170,7 +170,7 @@ const ComplaintForm = ({}: Props) => {
               </div>
             </div>
 
-            <div className="w-full mb-6 pb-6 md:mb-0">
+            <div className="w-full mb-6 pb-8 md:mb-0">
               <Textarea
                 {...register("issueDescription")}
                 type="issueDescription"
@@ -178,6 +178,7 @@ const ComplaintForm = ({}: Props) => {
                 labelPlacement="outside"
                 placeholder="Detailed Description of the Issue"
                 size="sm"
+                minRows={3}
                 variant="underlined"
                 classNames={{
                   label: ["text-slate-800", "text-sm"],
