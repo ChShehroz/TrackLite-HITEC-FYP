@@ -2,7 +2,6 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { PhotoIcon } from "@heroicons/react/20/solid";
 import {
   Popover,
   PopoverTrigger,
@@ -13,7 +12,12 @@ import {
   Input,
 } from "@nextui-org/react";
 import { useEffect } from "react";
-import { FaCircleQuestion, FaPhone } from "react-icons/fa6";
+import {
+  FaCircleQuestion,
+  FaLocationDot,
+  FaPhone,
+  FaUpload,
+} from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
 
 const schema = z.object({
@@ -56,10 +60,9 @@ const LostFoundForm = ({}: Props) => {
   };
 
   // Tailwind CSS classes
-  const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
+
   const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
-  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
   useEffect(() => {
     document.title = "Lost-Found";
@@ -197,38 +200,60 @@ const LostFoundForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="w-2/3">
-              <Input
-                {...register("email")}
-                type="email"
-                label="Email Address"
-                labelPlacement="outside"
-                size="sm"
-                variant="underlined"
-                classNames={{
-                  label: ["text-slate-800", "text-sm"],
-                }}
-                endContent={
-                  <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
-                }
-              />
-              {errors.email && (
-                <span className="text-red-500 text-xs">
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-            <div className="flex space-x-4">
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="location">
-                  Location (Last Seen/Found)
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
+                  {...register("dateAndTime")}
+                  id="dateTime"
+                  type="datetime-local"
+                  label="Date and Time"
+                  labelPlacement="outside"
+                  placeholder="Date and Time"
+                  size="sm"
+                  variant="underlined"
+                />
+                {errors.dateAndTime && (
+                  <span className="text-red-500 text-xs">
+                    {errors.dateAndTime.message}
+                  </span>
+                )}
+              </div>
+
+              <div className="w-1/2 px-3 md:mb-5">
+                <Input
+                  {...register("email")}
+                  type="email"
+                  label="Email Address"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
+                />
+                {errors.email && (
+                  <span className="text-red-500 text-xs">
+                    {errors.email.message}
+                  </span>
+                )}
+              </div>
+
+              <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("location")}
                   id="location"
-                  className={formInputStyle}
-                  placeholder="Where was the item last seen or found?"
+                  label="Location (Last Seen/Found)"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <FaLocationDot className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
                 />
                 {errors.location && (
                   <span className="text-red-500 text-xs">
@@ -236,16 +261,44 @@ const LostFoundForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="description">
-                  Description of Item
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
+                  {...register("photo")}
+                  type="file"
+                  id="file-upload"
+                  label="Photo (optional for found items)"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  accept=".pdf,.docx"
+                  onChange={(e) => {
+                    register("photo").onChange(e);
+                  }}
+                  startContent={
+                    <FaUpload
+                      className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0"
+                      onClick={() =>
+                        document.getElementById("file-upload")?.click()
+                      }
+                    />
+                  }
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                />
+              </div>
+              <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+                <Input
+                  {...register("description")}
                   id="description"
                   type="text"
-                  {...register("description")}
-                  className={formInputStyle}
-                  placeholder="Provide a detailed description of the item"
+                  label="Description of Item"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.description && (
                   <span className="text-red-500 text-xs">
@@ -254,58 +307,8 @@ const LostFoundForm = ({}: Props) => {
                 )}
               </div>
             </div>
-            <div className="flex space-x-4">
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="photoItem">
-                  Item Photo (optional for found items)
-                </label>
-                <div className="mt-2 flex justify-center rounded-3xl border border-dashed border-gray-400 px-6 py-4">
-                  <div className="text-center">
-                    <PhotoIcon
-                      className="mx-auto h-10 w-10 text-gray-700"
-                      aria-hidden="true"
-                    />
-                    <div className="mt-4 flex text-sm leading-6 text-gray-600">
-                      <label
-                        htmlFor="file-upload"
-                        className="relative cursor-pointer rounded-md bg-transparent font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-                      >
-                        <span>Upload a file</span>
-                        <input
-                          id="file-upload"
-                          name="file-upload"
-                          type="file"
-                          className="sr-only"
-                        />
-                      </label>
-                      <p className="pl-1">or drag and drop</p>
-                    </div>
-                    <p className="text-xs leading-5 text-gray-800">
-                      PNG, JPG up to 10MB
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="dateTime">
-                  Date and Time
-                </label>
-                <input
-                  {...register("dateAndTime")}
-                  id="dateTime"
-                  type="datetime-local"
-                  className={formInputStyle}
-                  placeholder="Date and Time"
-                />
-                {errors.dateAndTime && (
-                  <span className="text-red-500 text-xs">
-                    {errors.dateAndTime.message}
-                  </span>
-                )}
-              </div>
-            </div>
 
-            <div className="flex justify-end gap-3 mt-6">
+            <div className="flex justify-end gap-3 mt-6 pt-10">
               <Link to={"/Home"}>
                 <Button
                   radius="full"
