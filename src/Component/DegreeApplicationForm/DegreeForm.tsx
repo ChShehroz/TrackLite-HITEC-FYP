@@ -115,7 +115,7 @@ const DegreeForm = ({}: Props) => {
 
           <form className="space-y-4" onSubmit={handleSubmit(submitData)}>
             <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-5">
                 <Input
                   {...register("studentName")}
                   type="studentname"
@@ -169,9 +169,8 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="flex flex-wrap -mx-3 mb-2">
-              <div className="w-full md:w-1/3 px-3">
+
+              <div className="w-full md:w-1/3 px-3 md:mb-5">
                 <Input
                   {...register("semester")}
                   type="semester"
@@ -191,22 +190,19 @@ const DegreeForm = ({}: Props) => {
               </div>
               <div className="w-full md:w-1/3 px-3">
                 <Input
-                  {...register("email")}
-                  type="email"
-                  label="Email Address"
+                  {...register("reasonForLeaving")}
+                  type="reasonForLeaving"
+                  label="Reason for Leaving"
                   labelPlacement="outside"
                   size="sm"
                   variant="underlined"
                   classNames={{
                     label: ["text-slate-800", "text-sm"],
                   }}
-                  endContent={
-                    <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
-                  }
                 />
-                {errors.email && (
+                {errors.reasonForLeaving && (
                   <span className="text-red-500 text-xs">
-                    {errors.email.message}
+                    {errors.reasonForLeaving.message}
                   </span>
                 )}
               </div>
@@ -231,28 +227,29 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
 
-            <div className="flex flex-wrap -mx-3 pb-10 mb-10">
-              <div className="w-full md:w-1/3 px-3">
+              <div className="w-full md:w-1/2 px-3">
                 <Input
-                  {...register("reasonForLeaving")}
-                  type="reasonForLeaving"
-                  label="Reason for Leaving"
+                  {...register("email")}
+                  type="email"
+                  label="Email Address"
                   labelPlacement="outside"
                   size="sm"
                   variant="underlined"
                   classNames={{
                     label: ["text-slate-800", "text-sm"],
                   }}
+                  endContent={
+                    <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
                 />
-                {errors.reasonForLeaving && (
+                {errors.email && (
                   <span className="text-red-500 text-xs">
-                    {errors.reasonForLeaving.message}
+                    {errors.email.message}
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-2/3 px-3">
+              <div className="w-full md:w-1/2 px-3">
                 <Input
                   {...register("postalAddress")}
                   type="postalAddress"
@@ -272,7 +269,7 @@ const DegreeForm = ({}: Props) => {
               </div>
             </div>
 
-            <div className="flex justify-end gap-3 mt-6">
+            <div className="flex justify-end gap-3 mt-6 pt-10">
               <Link to={"/Home"}>
                 <Button
                   radius="full"
