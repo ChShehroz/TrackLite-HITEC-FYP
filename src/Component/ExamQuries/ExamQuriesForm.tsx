@@ -1,19 +1,23 @@
+import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUpload } from "@fortawesome/free-solid-svg-icons";
 import {
+  Button,
+  Input,
+  Textarea,
   Popover,
   PopoverTrigger,
   PopoverContent,
   RadioGroup,
   Radio,
-  Button,
 } from "@nextui-org/react";
+import { FaPhoneAlt, FaUpload } from "react-icons/fa";
+import { TbMailFilled } from "react-icons/tb";
+import { Link } from "react-router-dom";
 import { FaCircleQuestion } from "react-icons/fa6";
+import { Props } from "@fortawesome/react-fontawesome";
 
+// Define your form schema using Zod
 const schema = z.object({
   queryType: z.enum(["Apply for 'I' Grade", "Request Exam Recheck"]),
   studentName: z.string().min(1, "Student's name is required."),
@@ -24,41 +28,36 @@ const schema = z.object({
     .email("Invalid email address."),
   phone: z
     .string()
-    .min(1, { message: "Phone number is required." })
-    .regex(/^\d{11}$/, { message: "Phone number must be 11 digits." }),
+    .min(1, "Phone number is required.")
+    .regex(/^\d{11}$/, "Phone number must be 11 digits."),
   courseName: z.string().min(1, "Course name is required."),
   courseCode: z.string().min(1, "Course code is required."),
   reason: z.string().min(20, "Please provide a detailed reason or concern."),
-  file: z.instanceof(File).optional(),
+  file: z.instanceof(FileList).optional(),
 });
 
-type ExamQuriesFormData = z.infer<typeof schema>;
-
-interface Props {
-  onSubmit: (data: ExamQuriesFormData) => void;
-}
+type ExamQueriesFormData = z.infer<typeof schema>;
 
 const ExamQuriesForm = ({}: Props) => {
   const {
     register,
     handleSubmit,
-    reset,
     control,
+    reset,
     formState: { errors },
-  } = useForm<ExamQuriesFormData>({
+  } = useForm<ExamQueriesFormData>({
     resolver: zodResolver(schema),
   });
 
-  const submitData = (data: ExamQuriesFormData) => {
+  const onSubmit = (data: ExamQueriesFormData) => {
     console.log(data);
+    // Process the file here if necessary
+    // Example: console.log(data.file?.[0]);
     reset();
   };
   // Tailwind CSS classes
-  const formInputStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
   const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
-  const textAreaStyle = `w-full bg-[#fffcf1] px-4 py-2 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#E3C3A9]`;
-  const formLabel = `block text-gray-700 text-sm font-medium ml-4 mb-1`;
 
   return (
     <div className="flex flex-col items-center">
@@ -66,7 +65,7 @@ const ExamQuriesForm = ({}: Props) => {
         Exam Query Assistance
       </h2>
       <div className="bg-[#ff7d60] rounded-3xl pt-1 shadow-xl max-w-4xl w-full mb-20">
-        <div className="relative bg-[#EFE7CD] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
+        <div className="relative bg-gradient-to-b from-[#f0e8c9] via-[#fffdf6] bg-[#fffdf6] p-14 rounded-t-2xl rounded-b-3xl max-w-4xl w-full">
           <Popover
             showArrow
             offset={10}
@@ -120,9 +119,9 @@ const ExamQuriesForm = ({}: Props) => {
             </PopoverContent>
           </Popover>
 
-          <form onSubmit={handleSubmit(submitData)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="flex items-center mb-4">
-              <p className="font-semibold mx-4">Type of Query</p>
+              <p className="font-semibold text-slate-800 mr-4">Type of Query</p>
               <Controller
                 name="queryType"
                 control={control}
@@ -152,17 +151,18 @@ const ExamQuriesForm = ({}: Props) => {
                 )}
               />
             </div>
-            <div className="flex space-x-4">
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="studentName">
-                  Student's Name
-                </label>
-                <input
+            <div className="flex flex-wrap -mx-3 mb-2">
+              <div className="w-full md:w-1/3 px-3 mb-60 md:mb-5">
+                <Input
                   {...register("studentName")}
-                  id="studentName"
-                  type="text"
-                  placeholder="Enter the student's name"
-                  className={formInputStyle}
+                  type="studentname"
+                  label="Student's Name"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.studentName && (
                   <span className="text-red-500 text-xs">
@@ -170,16 +170,17 @@ const ExamQuriesForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="rollNo">
-                  Roll Number
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("rollNo")}
-                  type="text"
-                  id="rollNo"
-                  placeholder="Enter your roll number"
-                  className={formInputStyle}
+                  type="rollNo"
+                  label="Roll Number"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.rollNo && (
                   <span className="text-red-500 text-xs">
@@ -187,17 +188,17 @@ const ExamQuriesForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="flex space-x-4">
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="courseName">
-                  Course Name
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("courseName")}
-                  id="courseName"
-                  className={formInputStyle}
-                  placeholder="Enter the course name"
+                  type="courseName"
+                  label="Course Name"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.courseName && (
                   <span className="text-red-500 text-xs">
@@ -205,16 +206,17 @@ const ExamQuriesForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="courseCode">
-                  Course Code
-                </label>
-                <input
-                  id="courseCode"
-                  type="text"
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-5">
+                <Input
                   {...register("courseCode")}
-                  className={formInputStyle}
-                  placeholder="Enter the course code"
+                  type="courseCode"
+                  label="Course Code"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
                 />
                 {errors.courseCode && (
                   <span className="text-red-500 text-xs">
@@ -222,18 +224,21 @@ const ExamQuriesForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-            <div className="flex space-x-4">
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="email">
-                  Email Address
-                </label>
-                <input
+
+              <div className="w-full md:w-2/3 px-3">
+                <Input
                   {...register("email")}
                   type="email"
-                  id="email"
-                  placeholder="Enter your email address"
-                  className={formInputStyle}
+                  label="Email Address"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
                 />
                 {errors.email && (
                   <span className="text-red-500 text-xs">
@@ -241,16 +246,20 @@ const ExamQuriesForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="phone">
-                  Phone Number
-                </label>
-                <input
+              <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <Input
                   {...register("phone")}
-                  type="tel"
-                  id="phone"
-                  placeholder="Enter your phone number"
-                  className={formInputStyle}
+                  type="phone"
+                  label="Phone Number"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                  endContent={
+                    <FaPhoneAlt className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
                 />
                 {errors.phone && (
                   <span className="text-red-500 text-xs">
@@ -258,46 +267,50 @@ const ExamQuriesForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-            </div>
-
-            <div className="flex space-x-3">
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="reason">
-                  Detailed Reason
-                </label>
-                <textarea
+              <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+                <Input
+                  {...register("file")}
+                  type="file"
+                  label="Supporting Documents (optional)"
+                  labelPlacement="outside"
+                  size="sm"
+                  variant="underlined"
+                  accept=".pdf,.docx"
+                  onChange={(e) => {
+                    register("file").onChange(e);
+                  }}
+                  endContent={
+                    <FaUpload
+                      className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0"
+                      onClick={() =>
+                        document.getElementById("file-upload")?.click()
+                      }
+                    />
+                  }
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                />
+              </div>
+              <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
+                <Textarea
                   {...register("reason")}
-                  id="reason"
-                  rows={3}
-                  className={textAreaStyle}
-                  placeholder="Describe the reason for your query in detail."
-                ></textarea>
+                  type="reaason"
+                  label="Detail Reason"
+                  labelPlacement="outside"
+                  placeholder="Describe the reason for your query in detail..."
+                  size="sm"
+                  minRows={2}
+                  variant="underlined"
+                  classNames={{
+                    label: ["text-slate-800", "text-sm"],
+                  }}
+                ></Textarea>
                 {errors.reason && (
                   <span className="text-red-500 text-xs">
                     {errors.reason.message}
                   </span>
                 )}
-              </div>
-              <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                <label className={formLabel} htmlFor="file">
-                  Supporting Documents (optional)
-                </label>
-                <div
-                  className={`flex items-center ${formInputStyle} cursor-pointer relative`}
-                >
-                  <input
-                    {...register("file")}
-                    type="file"
-                    id="file"
-                    className="absolute inset-0 opacity-0 cursor-pointer"
-                    onChange={(e) => console.log(e.target.files)}
-                  />
-                  <FontAwesomeIcon
-                    icon={faUpload}
-                    className="h-4 w-5 text-gray-500 al mr-2"
-                  />
-                  <span>Upload a file</span>
-                </div>
               </div>
             </div>
 
