@@ -11,6 +11,7 @@ import {
 } from "@nextui-org/react";
 import { FaCircleQuestion, FaPhone } from "react-icons/fa6";
 import { TbMailFilled } from "react-icons/tb";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const schema = z.object({
   studentName: z.string().min(1, "Student's name is required."),
@@ -228,7 +229,7 @@ const DegreeForm = ({}: Props) => {
                 )}
               </div>
 
-              <div className="w-full md:w-1/2 px-3">
+              <div className="w-full md:w-[42%] px-3">
                 <Input
                   {...register("email")}
                   type="email"
@@ -249,7 +250,7 @@ const DegreeForm = ({}: Props) => {
                   </span>
                 )}
               </div>
-              <div className="w-full md:w-1/2 px-3">
+              <div className="w-full md:w-[58%] px-3">
                 <Input
                   {...register("postalAddress")}
                   type="postalAddress"
@@ -260,6 +261,9 @@ const DegreeForm = ({}: Props) => {
                   classNames={{
                     label: ["text-slate-800", "text-sm"],
                   }}
+                  endContent={
+                    <FaMapMarkerAlt className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
+                  }
                 />
                 {errors.postalAddress && (
                   <span className="text-red-500 text-xs">
