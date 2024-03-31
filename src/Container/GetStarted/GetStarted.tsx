@@ -13,6 +13,7 @@ const GetStarted = () => {
     <>
       <div className="relative text-center">
         <img src={getStartedImg} alt="Get started" className="w-[593px]" />
+
         <div className="absolute top-[42%] left-3/4 transform -translate-x-1/2 -translate-y-1/2">
           <h1 className="text-3xl font-bold text-slate-800 mb-7">
             Get Started
