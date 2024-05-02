@@ -15,7 +15,6 @@ import { FaPhoneAlt, FaUpload } from "react-icons/fa";
 import { TbMailFilled } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { FaCircleQuestion } from "react-icons/fa6";
-import { Props } from "@fortawesome/react-fontawesome";
 
 // Define your form schema using Zod
 const schema = z.object({
@@ -37,6 +36,10 @@ const schema = z.object({
 });
 
 type ExamQueriesFormData = z.infer<typeof schema>;
+
+interface Props {
+  onSubmit: (data: ExamQueriesFormData) => void;
+}
 
 const ExamQuriesForm = ({}: Props) => {
   const {
