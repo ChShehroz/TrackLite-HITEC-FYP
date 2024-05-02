@@ -1,6 +1,5 @@
 import React from "react";
-import imgFolder from "../../src/assets/Images/folder.png"; // Ensure this path is correct and accessible
-
+import empty from "../../src/assets/Images/undraw_empty_re_opql.svg";
 type RequestStatus = "Pending" | "Rejected" | "Approved";
 
 interface Request {
@@ -91,7 +90,7 @@ const RequestTable: React.FC = () => {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center h-[268px]">
-          <img src={imgFolder} alt="No requests" className="h-32" />
+          <img src={empty} alt="No requests" className="h-32" />
           <p className="mt-4 text-xl text-slate-600">No requests found.</p>
         </div>
       )}
