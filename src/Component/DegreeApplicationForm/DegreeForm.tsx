@@ -37,7 +37,7 @@ interface Props {
   onSubmit: (data: DegreeFormData) => void;
 }
 
-const DegreeForm = ({}: Props) => {
+const DegreeForm: React.FC<Props> = ({ onSubmit }) => {
   const {
     register,
     handleSubmit,
@@ -48,9 +48,10 @@ const DegreeForm = ({}: Props) => {
   });
 
   const submitData = (data: DegreeFormData) => {
-    console.log(data);
+    onSubmit(data);
     reset();
   };
+
   const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
 
