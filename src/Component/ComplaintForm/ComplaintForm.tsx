@@ -32,7 +32,7 @@ interface Props {
   onSubmit: (data: ComplaintFormData) => void;
 }
 
-const ComplaintForm = ({}: Props) => {
+const ComplaintForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
@@ -43,7 +43,7 @@ const ComplaintForm = ({}: Props) => {
   });
 
   const submitData = (data: ComplaintFormData) => {
-    console.log(data);
+    onSubmit(data);
     reset();
   };
 
