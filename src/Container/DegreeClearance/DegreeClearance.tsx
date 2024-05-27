@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import axios from "axios"; // Use axios directly or your configured instance
+import axios from "axios";
 import DegreeForm from "../../Component/DegreeApplicationForm/DegreeForm";
 import Footer from "../../Component/Footer";
 import NavBar from "../../Component/NavBar";
