@@ -34,7 +34,7 @@ const schema = z.object({
   location: z.string().min(1, "Location is required."),
   description: z.string().min(1, "Description is required."),
   dateAndTime: z.string().min(1, "Date and time are required."),
-  photo: z.any(),
+  photo: z.any().optional(),
 });
 
 type LostAndFoundData = z.infer<typeof schema>;
@@ -54,19 +54,19 @@ const LostFoundForm = ({}: Props) => {
     resolver: zodResolver(schema),
   });
 
-  const submitData = (data: LostAndFoundData) => {
+  const submitData = async (data: LostAndFoundData) => {
     console.log(data);
     reset();
   };
+
+  useEffect(() => {
+    document.title = "Lost-Found";
+  }, []);
 
   // Tailwind CSS classes
 
   const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
-
-  useEffect(() => {
-    document.title = "Lost-Found";
-  });
 
   return (
     <div className="flex flex-col items-center">
@@ -136,21 +136,20 @@ const LostFoundForm = ({}: Props) => {
                 control={control}
                 render={({ field }) => (
                   <div className="flex space-x-4">
-                    <RadioGroup orientation="horizontal">
+                    <RadioGroup
+                      {...field}
+                      value={field.value}
+                      onChange={field.onChange}
+                      orientation="horizontal"
+                    >
                       <Radio
-                        {...register("reportType")}
-                        type="radio"
                         value="Lost Item"
-                        checked={field.value === "Lost Item"}
                         className="form-radio text-blue-600 border-gray-300"
                       >
                         Lost Item
                       </Radio>
                       <Radio
-                        {...register("reportType")}
-                        type="radio"
                         value="Found Item"
-                        checked={field.value === "Found Item"}
                         className="form-radio text-blue-600 border-gray-300"
                       >
                         Found Item
@@ -164,8 +163,8 @@ const LostFoundForm = ({}: Props) => {
               <div className="w-full md:w-1/3 px-3 mb-60 md:mb-5">
                 <Input
                   {...register("name")}
-                  type="studentname"
-                  label="Student's Name"
+                  type="text"
+                  label="Name"
                   labelPlacement="outside"
                   size="sm"
                   variant="underlined"
@@ -182,7 +181,7 @@ const LostFoundForm = ({}: Props) => {
               <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                 <Input
                   {...register("phone")}
-                  type="phone"
+                  type="text"
                   label="Phone Number"
                   labelPlacement="outside"
                   size="sm"
@@ -207,7 +206,6 @@ const LostFoundForm = ({}: Props) => {
                   type="datetime-local"
                   label="Date and Time"
                   labelPlacement="outside"
-                  placeholder="Date and Time"
                   size="sm"
                   variant="underlined"
                 />
