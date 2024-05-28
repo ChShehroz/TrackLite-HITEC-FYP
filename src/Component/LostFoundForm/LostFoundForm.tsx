@@ -43,7 +43,7 @@ interface Props {
   onSubmit: (data: LostAndFoundData) => void;
 }
 
-const LostFoundForm = ({}: Props) => {
+const LostFoundForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
@@ -55,7 +55,7 @@ const LostFoundForm = ({}: Props) => {
   });
 
   const submitData = async (data: LostAndFoundData) => {
-    console.log(data);
+    onSubmit(data);
     reset();
   };
 
