@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import axios from "axios";
 import Footer from "../../Component/Footer";
-import LostFoundForm from "../../Component/LostFoundForm/LostFoundForm";
 import NavBar from "../../Component/NavBar";
+import ExamQuriesForm from "../../Component/ExamQuries/ExamQuriesForm";
 
 const LostFoundReport = () => {
   const handleSubmit = async (data: any) => {
@@ -16,7 +16,9 @@ const LostFoundReport = () => {
       formData.append("reason", data.reason);
       formData.append("email", data.email);
       formData.append("phone", data.phone);
-      formData.append("file", data.file[0]);
+      formData.append("file", data.file[0]); // Ensure file is appended correctly
+
+      console.log("Submitting form data:", data); // Log form data for debugging
 
       const response = await axios.post(
         "http://localhost:5000/api/v1/examqueries",
@@ -28,7 +30,7 @@ const LostFoundReport = () => {
         }
       );
 
-      console.log(response.data);
+      console.log("Response data:", response.data); // Log response data
     } catch (error) {
       console.error("Error submitting the form:", error);
     }
@@ -41,7 +43,7 @@ const LostFoundReport = () => {
   return (
     <>
       <NavBar />
-      <LostFoundForm onSubmit={handleSubmit} />
+      <ExamQuriesForm onSubmit={handleSubmit} />
       <Footer />
     </>
   );
