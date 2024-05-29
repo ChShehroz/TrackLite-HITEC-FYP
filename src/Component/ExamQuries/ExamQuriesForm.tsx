@@ -32,7 +32,7 @@ const schema = z.object({
   courseName: z.string().min(1, "Course name is required."),
   courseCode: z.string().min(1, "Course code is required."),
   reason: z.string().min(20, "Please provide a detailed reason or concern."),
-  file: z.instanceof(FileList).optional(),
+  file: z.instanceof(File).optional(),
 });
 
 type ExamQueriesFormData = z.infer<typeof schema>;
@@ -54,8 +54,6 @@ const ExamQuriesForm = ({}: Props) => {
 
   const onSubmit = (data: ExamQueriesFormData) => {
     console.log(data);
-    // Process the file here if necessary
-    // Example: console.log(data.file?.[0]);
     reset();
   };
   // Tailwind CSS classes
@@ -129,28 +127,14 @@ const ExamQuriesForm = ({}: Props) => {
                 name="queryType"
                 control={control}
                 render={({ field }) => (
-                  <div className="flex space-x-4">
-                    <RadioGroup orientation="horizontal">
-                      <Radio
-                        {...register("queryType")}
-                        type="radio"
-                        value="Apply for 'I' Grade"
-                        checked={field.value === "Apply for 'I' Grade"}
-                        className="form-radio text-blue-600 border-gray-300"
-                      >
-                        Apply for 'I' Grade
-                      </Radio>
-                      <Radio
-                        {...register("queryType")}
-                        type="radio"
-                        value="Request Exam Recheck"
-                        checked={field.value === "Request Exam Recheck"}
-                        className="form-radio text-blue-600 border-gray-300"
-                      >
-                        Request Exam Recheck
-                      </Radio>
-                    </RadioGroup>
-                  </div>
+                  <RadioGroup {...field} orientation="horizontal">
+                    <Radio value="Apply for 'I' Grade">
+                      Apply for 'I' Grade
+                    </Radio>
+                    <Radio value="Request Exam Recheck">
+                      Request Exam Recheck
+                    </Radio>
+                  </RadioGroup>
                 )}
               />
             </div>
@@ -271,29 +255,37 @@ const ExamQuriesForm = ({}: Props) => {
                 )}
               </div>
               <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
-                <Input
-                  {...register("file")}
-                  type="file"
-                  id="file-upload"
-                  label="Supporting Documents (optional)"
-                  labelPlacement="outside"
-                  size="sm"
-                  variant="underlined"
-                  accept=".pdf,.docx"
-                  onChange={(e) => {
-                    register("file").onChange(e);
-                  }}
-                  startContent={
-                    <FaUpload
-                      className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0"
-                      onClick={() =>
-                        document.getElementById("file-upload")?.click()
+                <Controller
+                  name="file"
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                      type="file"
+                      id="file-upload"
+                      label="Supporting Documents (optional)"
+                      labelPlacement="outside"
+                      size="sm"
+                      variant="underlined"
+                      accept=".pdf,.docx"
+                      onChange={(e) => {
+                        const files = e.target.files;
+                        if (files && files.length > 0) {
+                          field.onChange(files[0]);
+                        }
+                      }}
+                      startContent={
+                        <FaUpload
+                          className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0"
+                          onClick={() =>
+                            document.getElementById("file-upload")?.click()
+                          }
+                        />
                       }
+                      classNames={{
+                        label: ["text-slate-800", "text-sm"],
+                      }}
                     />
-                  }
-                  classNames={{
-                    label: ["text-slate-800", "text-sm"],
-                  }}
+                  )}
                 />
               </div>
               <div className="w-full px-3 mb-6 md:mt-5">
