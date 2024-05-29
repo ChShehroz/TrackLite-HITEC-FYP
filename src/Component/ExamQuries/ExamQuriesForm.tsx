@@ -41,7 +41,7 @@ interface Props {
   onSubmit: (data: ExamQueriesFormData) => void;
 }
 
-const ExamQuriesForm = ({}: Props) => {
+const ExamQuriesForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
@@ -52,8 +52,8 @@ const ExamQuriesForm = ({}: Props) => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = (data: ExamQueriesFormData) => {
-    console.log(data);
+  const submitData = (data: ExamQueriesFormData) => {
+    onSubmit(data);
     reset();
   };
   // Tailwind CSS classes
@@ -120,7 +120,7 @@ const ExamQuriesForm = ({}: Props) => {
             </PopoverContent>
           </Popover>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(submitData)} className="space-y-4">
             <div className="flex items-center mb-4">
               <p className="font-semibold text-slate-800 mr-4">Type of Query</p>
               <Controller

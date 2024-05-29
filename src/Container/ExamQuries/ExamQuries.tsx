@@ -1,35 +1,50 @@
 import { useEffect } from "react";
-import ExamQuriesForm from "../../Component/ExamQuries/ExamQuriesForm";
+import axios from "axios";
 import Footer from "../../Component/Footer";
+import LostFoundForm from "../../Component/LostFoundForm/LostFoundForm";
 import NavBar from "../../Component/NavBar";
 
-const ExamQuries = () => {
-  const handleSubmit = (data: {
-    studentName: string;
-    rollNo: string;
-    email: string;
-    phone: string;
-    queryType: "Apply for 'I' Grade" | "Request Exam Recheck";
-    courseName: string;
-    courseCode: string;
-    reason: string;
-    file?: File | undefined;
-  }) => {
-    // Perform some action with the form data
-    console.log(data);
+const LostFoundReport = () => {
+  const handleSubmit = async (data: any) => {
+    try {
+      const formData = new FormData();
+      formData.append("studentName", data.studentName);
+      formData.append("rollNo", data.rollNo);
+      formData.append("courseName", data.courseName);
+      formData.append("courseCode", data.courseCode);
+      formData.append("queryType", data.queryType);
+      formData.append("reason", data.reason);
+      formData.append("email", data.email);
+      formData.append("phone", data.phone);
+      formData.append("file", data.file[0]);
+
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/examqueries",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    }
   };
 
   useEffect(() => {
-    document.title = "Exam-Quries";
-  });
+    document.title = "Lost-Found";
+  }, []);
 
   return (
     <>
       <NavBar />
-      <ExamQuriesForm onSubmit={handleSubmit} />
+      <LostFoundForm onSubmit={handleSubmit} />
       <Footer />
     </>
   );
 };
 
-export default ExamQuries;
+export default LostFoundReport;
