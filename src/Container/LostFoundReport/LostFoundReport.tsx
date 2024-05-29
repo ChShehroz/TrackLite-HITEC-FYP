@@ -8,8 +8,8 @@ const LostFoundReport = () => {
   const handleSubmit = async (data: any) => {
     const formData = new FormData();
     Object.keys(data).forEach((key) => {
-      if (key === "photo" && data[key].length > 0) {
-        formData.append(key, data[key][0]);
+      if (key === "photo" && data[key]) {
+        formData.append(key, data[key]);
       } else {
         formData.append(key, data[key]);
       }

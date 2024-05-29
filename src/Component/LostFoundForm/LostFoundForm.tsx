@@ -63,8 +63,6 @@ const LostFoundForm = ({ onSubmit }: Props) => {
     document.title = "Lost-Found";
   }, []);
 
-  // Tailwind CSS classes
-
   const btnPrimaryStyle = `px-8 py-1 flex items-center text-sm space-x-2 bg-slate-800 text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-slate-400`;
   const btnSecondaryStyle = `px-8 py-1 hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50`;
 
@@ -134,6 +132,7 @@ const LostFoundForm = ({ onSubmit }: Props) => {
               <Controller
                 name="reportType"
                 control={control}
+                defaultValue="Lost Item"
                 render={({ field }) => (
                   <div className="flex space-x-4">
                     <RadioGroup
@@ -260,29 +259,39 @@ const LostFoundForm = ({ onSubmit }: Props) => {
                 )}
               </div>
               <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                <Input
-                  {...register("photo")}
-                  type="file"
-                  id="file-upload"
-                  label="Photo (optional for found items)"
-                  labelPlacement="outside"
-                  size="sm"
-                  variant="underlined"
-                  accept=".pdf,.docx"
-                  onChange={(e) => {
-                    register("photo").onChange(e);
-                  }}
-                  startContent={
-                    <FaUpload
-                      className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0"
-                      onClick={() =>
-                        document.getElementById("file-upload")?.click()
+                <Controller
+                  name="photo"
+                  control={control}
+                  render={({ field }) => (
+                    <Input
+                      type="file"
+                      id="file-upload"
+                      label="Photo (optional for found items)"
+                      labelPlacement="outside"
+                      size="sm"
+                      variant="underlined"
+                      accept="image/*"
+                      onChange={(e) => {
+                        const files = e.target.files;
+                        if (files && files.length > 0) {
+                          field.onChange(files[0]);
+                        } else {
+                          field.onChange(null);
+                        }
+                      }}
+                      startContent={
+                        <FaUpload
+                          className="text-xl text-slate-400 mr-1 pointer-events-none flex-shrink-0"
+                          onClick={() =>
+                            document.getElementById("file-upload")?.click()
+                          }
+                        />
                       }
+                      classNames={{
+                        label: ["text-slate-800", "text-sm"],
+                      }}
                     />
-                  }
-                  classNames={{
-                    label: ["text-slate-800", "text-sm"],
-                  }}
+                  )}
                 />
               </div>
               <div className="w-full md:w-2/3 px-3 mb-6 md:mb-0">
