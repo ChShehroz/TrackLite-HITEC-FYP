@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import getStartedImg from "../../assets/Images/GetStarted.png";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Button,
   ButtonGroup,
@@ -8,48 +8,57 @@ import {
   Select,
   SelectItem,
 } from "@nextui-org/react";
-import { RiEyeFill } from "react-icons/ri";
-import { RiEyeOffFill } from "react-icons/ri";
+import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { TbMailFilled } from "react-icons/tb";
 import { departments } from "./Department";
+import { useForm, Controller } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 
-interface FormState {
-  email: string;
-  password: string;
-  department: string;
-  userType: "faculty" | "student";
-}
+// Define your form schema using Zod
+const schema = z.object({
+  email: z
+    .string()
+    .email("Invalid email address")
+    .nonempty("Email is required"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+  department: z.string().nonempty("Department is required"),
+  userType: z.enum(["faculty", "student"]),
+});
+
+type FormState = z.infer<typeof schema>;
 
 const SignUp = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleSignUpClick = () => {
-    navigate("/Log-In");
-  };
-
-  const [formState, setFormState] = useState<FormState>({
-    email: "",
-    password: "",
-    department: "",
-    userType: "student",
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    formState: { errors },
+  } = useForm<FormState>({
+    resolver: zodResolver(schema),
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formState);
-    // Here you would typically handle the form submission, like sending data to a server
+  const handleSignUpClick = async (data: FormState) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/auth/register",
+        data
+      );
+      console.log("Response:", response.data);
+      navigate("/Log-In");
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    }
   };
 
   useEffect(() => {
     document.title = "TrackLite HITEC | Sign-Up";
-  });
-
-  const [isVisible, setIsVisible] = React.useState(false);
+  }, []);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
 
@@ -67,15 +76,15 @@ const SignUp = () => {
               <p className=" text-sm text-slate-500 font-medium mb-10">
                 Please enter your Details
               </p>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit(handleSignUpClick)}>
                 <div>
                   <Input
+                    {...register("email")}
                     type="email"
                     label="Email"
                     labelPlacement="outside"
                     size="sm"
                     variant="underlined"
-                    onChange={handleInputChange}
                     endContent={
                       <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
                     }
@@ -83,18 +92,20 @@ const SignUp = () => {
                       label: ["text-slate-800", "text-sm"],
                     }}
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.email.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="mb-3 mt-10">
                   <Input
+                    {...register("password")}
                     label="Password"
                     labelPlacement="outside"
                     size="sm"
                     variant="underlined"
-                    onChange={handleInputChange}
-                    classNames={{
-                      label: ["text-slate-800", "text-sm"],
-                    }}
                     endContent={
                       <button
                         className="focus:outline-none"
@@ -110,24 +121,41 @@ const SignUp = () => {
                     }
                     type={isVisible ? "text" : "password"}
                   />
+                  {errors.password && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.password.message}
+                    </p>
+                  )}
                 </div>
                 <div className="mb-3 mt-10">
-                  <Select
-                    label="Department"
-                    labelPlacement="outside"
-                    size="sm"
-                    variant="underlined"
-                    classNames={{
-                      label: ["text-slate-800", "text-sm"],
-                      listbox: "h-40",
-                    }}
-                  >
-                    {departments.map((dept) => (
-                      <SelectItem key={dept.id} value={dept.name}>
-                        {dept.name}
-                      </SelectItem>
-                    ))}
-                  </Select>
+                  <Controller
+                    name="department"
+                    control={control}
+                    render={({ field }) => (
+                      <Select
+                        {...field}
+                        label="Department"
+                        labelPlacement="outside"
+                        size="sm"
+                        variant="underlined"
+                        classNames={{
+                          label: ["text-slate-800", "text-sm"],
+                          listbox: "h-40",
+                        }}
+                      >
+                        {departments.map((dept) => (
+                          <SelectItem key={dept.id} value={dept.name}>
+                            {dept.name}
+                          </SelectItem>
+                        ))}
+                      </Select>
+                    )}
+                  />
+                  {errors.department && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.department.message}
+                    </p>
+                  )}
                 </div>
                 <div className="mb-6">
                   <label
@@ -141,11 +169,9 @@ const SignUp = () => {
                       <Button
                         type="button"
                         size="sm"
-                        onClick={() =>
-                          setFormState({ ...formState, userType: "faculty" })
-                        }
+                        onClick={() => setValue("userType", "faculty")}
                         className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
-                          formState.userType === "faculty"
+                          control._formValues.userType === "faculty"
                             ? "bg-slate-800 text-white"
                             : "text-slate-800"
                         } mr-2`}
@@ -155,11 +181,9 @@ const SignUp = () => {
                       <Button
                         type="button"
                         size="sm"
-                        onClick={() =>
-                          setFormState({ ...formState, userType: "student" })
-                        }
+                        onClick={() => setValue("userType", "student")}
                         className={`px-8 py-1.5 text-sm font-semibold rounded-full ${
-                          formState.userType === "student"
+                          control._formValues.userType === "student"
                             ? "bg-slate-800 text-white"
                             : "text-slate-800"
                         }`}
@@ -171,7 +195,7 @@ const SignUp = () => {
                 </div>
 
                 <Button
-                  onClick={handleSignUpClick}
+                  type="submit"
                   radius="full"
                   variant="flat"
                   className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md  focus:outline-none focus:ring-2 focus:ring-slate-400"
@@ -182,9 +206,9 @@ const SignUp = () => {
                 <p className="text-center text-slate-600 text-sm mt-2">
                   Already a user?{" "}
                   <Link to={"/Log-In"}>
-                    <a className="text-blue-500 hover:underline cursor-pointer">
+                    <span className="text-blue-500 hover:underline cursor-pointer">
                       Login
-                    </a>
+                    </span>
                   </Link>
                 </p>
               </form>
