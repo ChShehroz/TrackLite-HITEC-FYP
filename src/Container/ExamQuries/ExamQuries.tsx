@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import axios from "axios";
 import Footer from "../../Component/Footer";
 import NavBar from "../../Component/NavBar";
 import ExamQuriesForm from "../../Component/ExamQuries/ExamQuriesForm";
+import axiosInstance from "../../axiosInstance";
 
 const LostFoundReport = () => {
   const handleSubmit = async (data: any) => {
@@ -20,15 +20,11 @@ const LostFoundReport = () => {
 
       console.log("Submitting form data:", data); // Log form data for debugging
 
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/examqueries",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axiosInstance.post("/examqueries", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       console.log("Response data:", response.data); // Log response data
     } catch (error) {
