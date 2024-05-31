@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Footer from "../../Component/Footer";
 import LostFoundForm from "../../Component/LostFoundForm/LostFoundForm";
 import NavBar from "../../Component/NavBar";
-import axios from "axios";
+import axiosInstance from "../../axiosInstance";
 
 const LostFoundReport = () => {
   const handleSubmit = async (data: any) => {
@@ -16,15 +16,11 @@ const LostFoundReport = () => {
     });
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/lostfound",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      const response = await axiosInstance.post("/lostfound", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       console.log(response.data);
 
