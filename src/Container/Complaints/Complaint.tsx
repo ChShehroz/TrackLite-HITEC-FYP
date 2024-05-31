@@ -2,15 +2,12 @@ import { useEffect } from "react";
 import ComplaintForm from "../../Component/ComplaintForm/ComplaintForm";
 import Footer from "../../Component/Footer";
 import NavBar from "../../Component/NavBar";
-import axios from "axios";
+import axiosInstance from "../../axiosInstance";
 
 const Complaint = () => {
   const handleSubmit = async (data: any) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/complaints",
-        data
-      );
+      const response = await axiosInstance.post("/complaints", data);
 
       console.log(response.data);
 
