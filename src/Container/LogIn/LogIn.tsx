@@ -30,10 +30,12 @@ const LogIn = () => {
 
   const handleLoginClick = async (data: LoginFormInputs) => {
     try {
-      const response = await axios.post(
+      const response = await axios.post<{ token: string }>(
         "http://localhost:5000/api/v1/auth/login",
         data
       );
+      const { token } = response.data;
+      localStorage.setItem("token", token); // Store the token
       console.log("Response data:", response.data);
       navigate("/Home");
     } catch (error) {

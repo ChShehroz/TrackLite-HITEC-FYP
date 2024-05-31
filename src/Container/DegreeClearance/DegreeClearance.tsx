@@ -1,16 +1,13 @@
 import { useEffect } from "react";
-import axios from "axios";
 import DegreeForm from "../../Component/DegreeApplicationForm/DegreeForm";
 import Footer from "../../Component/Footer";
 import NavBar from "../../Component/NavBar";
+import axiosInstance from "../../axiosInstance";
 
 const DegreeClearance = () => {
   const handleSubmit = async (data: any) => {
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/degree",
-        data
-      );
+      const response = await axiosInstance.post("/degree", data);
 
       console.log(response.data);
 
