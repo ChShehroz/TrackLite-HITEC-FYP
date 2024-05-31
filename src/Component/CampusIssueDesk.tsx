@@ -65,7 +65,7 @@ const CampusIssueDesk: React.FC = () => {
         />
         <ServiceCard
           img={img3}
-          title="Loss and Found"
+          title="Lost and Found"
           subTitle="Reclaim Your Items"
           description="Lost an item on campus? Report it here. Found something? Help it return to its owner. Together, let's reunite lost belongings with their rightful owners."
           buttonText="Search & Report"

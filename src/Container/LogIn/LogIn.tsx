@@ -1,46 +1,54 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import getStartedImg from "../../assets/Images/GetStarted.png";
 import { Link, useNavigate } from "react-router-dom";
 import React from "react";
 import { RiEyeFill, RiEyeOffFill } from "react-icons/ri";
 import { Button, Input } from "@nextui-org/react";
 import { TbMailFilled } from "react-icons/tb";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 
-interface FormState {
-  email: string;
-  password: string;
-}
+const loginSchema = z.object({
+  email: z.string().min(1, "Email is required").email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters long"),
+});
+
+type LoginFormInputs = z.infer<typeof loginSchema>;
 
 const LogIn = () => {
-  const [formState, setFormState] = useState<FormState>({
-    email: "",
-    password: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormInputs>({
+    resolver: zodResolver(loginSchema),
   });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormState({ ...formState, [name]: value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formState);
-    // Here you would typically handle the form submission, like sending data to a server
-  };
 
   let navigate = useNavigate();
 
-  const handleLoginClick = () => {
-    navigate("/Home");
+  const handleLoginClick = async (data: LoginFormInputs) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/auth/login",
+        data
+      );
+      console.log("Response data:", response.data);
+      navigate("/Home");
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    }
   };
 
   useEffect(() => {
     document.title = "TrackLite HITEC | Log-In";
-  });
+  }, []);
 
   const [isVisible, setIsVisible] = React.useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
+
   return (
     <div className="relative text-center">
       <img src={getStartedImg} alt="Get started" className="w-[593px]" />
@@ -54,7 +62,7 @@ const LogIn = () => {
             <p className=" text-sm font-medium mb-10">
               Please enter your Details
             </p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(handleLoginClick)}>
               <div className="mb-12">
                 <Input
                   type="email"
@@ -62,7 +70,7 @@ const LogIn = () => {
                   labelPlacement="outside"
                   size="sm"
                   variant="underlined"
-                  onChange={handleInputChange}
+                  {...register("email")}
                   endContent={
                     <TbMailFilled className="text-2xl text-slate-400 mr-1 pointer-events-none flex-shrink-0" />
                   }
@@ -70,6 +78,11 @@ const LogIn = () => {
                     label: ["text-slate-800", "text-sm"],
                   }}
                 />
+                {errors.email && (
+                  <span className="text-red-500 text-xs">
+                    {errors.email.message}
+                  </span>
+                )}
               </div>
 
               <div>
@@ -78,7 +91,7 @@ const LogIn = () => {
                   labelPlacement="outside"
                   size="sm"
                   variant="underlined"
-                  onChange={handleInputChange}
+                  {...register("password")}
                   endContent={
                     <button
                       className="focus:outline-none"
@@ -97,6 +110,11 @@ const LogIn = () => {
                     label: ["text-slate-800", "text-sm"],
                   }}
                 />
+                {errors.password && (
+                  <span className="text-red-500 text-xs">
+                    {errors.password.message}
+                  </span>
+                )}
               </div>
               <div className="text-right mb-12">
                 <a className="text-sm text-blue-500 hover:underline cursor-pointer">
@@ -104,7 +122,7 @@ const LogIn = () => {
                 </a>
               </div>
               <Button
-                onClick={handleLoginClick}
+                type="submit"
                 radius="full"
                 variant="flat"
                 className="w-full flex items-center text-sm space-x-2 px-3 py-1.5 bg-slate-800 text-white shadow-md  focus:outline-none focus:ring-2 focus:ring-slate-400"
