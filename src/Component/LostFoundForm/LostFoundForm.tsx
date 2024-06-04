@@ -265,19 +265,21 @@ const LostFoundForm = ({ onSubmit }: Props) => {
                   render={({ field }) => (
                     <Input
                       type="file"
+                      name="photo"
                       id="file-upload"
                       label="Photo (optional for found items)"
                       labelPlacement="outside"
                       size="sm"
                       variant="underlined"
-                      accept="image/*"
+                      accept=".jpeg, .png, .jpg"
                       onChange={(e) => {
                         const files = e.target.files;
                         if (files && files.length > 0) {
                           field.onChange(files[0]);
-                        } else {
-                          field.onChange(null);
                         }
+                        // } else {
+                        //   field.onChange(null);
+                        // }
                       }}
                       startContent={
                         <FaUpload

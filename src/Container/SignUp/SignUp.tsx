@@ -119,6 +119,9 @@ const SignUp = () => {
                         )}
                       </button>
                     }
+                    classNames={{
+                      label: ["text-slate-800", "text-sm"],
+                    }}
                     type={isVisible ? "text" : "password"}
                   />
                   {errors.password && (
