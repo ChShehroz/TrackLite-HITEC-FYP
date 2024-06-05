@@ -5,7 +5,7 @@ import {
   faInstagram,
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
-import Logo from "../assets/Images/Logoremovebg.png";
+import Logo from "../assets/Images/LogoRemovebg.png";
 
 const Footer = () => {
   return (
