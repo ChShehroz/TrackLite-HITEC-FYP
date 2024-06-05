@@ -16,7 +16,7 @@ import {
   NavbarContent,
   NavbarItem,
 } from "@nextui-org/react";
-import Logo from "../assets/Images/Logoremovebg.png";
+import Logo from "../assets/Images/LogoRemovebg.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
