@@ -15,7 +15,10 @@ import { TbMailFilled } from "react-icons/tb";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required."),
-  complaintNature: z.string().min(1, "Complaint nature is required."),
+  complaintNature: z
+    .string()
+    .min(1, "Complaint nature is required.")
+    .max(25, "Complaint nature maximum 25 characters"),
   email: z
     .string()
     .min(1, "Email is required.")
