@@ -32,7 +32,7 @@ const schema = z.object({
   courseName: z.string().min(1, "Course name is required."),
   courseCode: z.string().min(1, "Course code is required."),
   reason: z.string().min(20, "Please provide a detailed reason or concern."),
-  file: z.instanceof(File).optional(),
+  file: z.any().optional(),
 });
 
 type ExamQueriesFormData = z.infer<typeof schema>;
@@ -261,6 +261,7 @@ const ExamQuriesForm = ({ onSubmit }: Props) => {
                   render={({ field }) => (
                     <Input
                       type="file"
+                      name="file"
                       id="file-upload"
                       label="Supporting Documents (optional)"
                       labelPlacement="outside"

@@ -16,9 +16,7 @@ const LostFoundReport = () => {
       formData.append("reason", data.reason);
       formData.append("email", data.email);
       formData.append("phone", data.phone);
-      formData.append("file", data.file[0]); // Ensure file is appended correctly
-
-      console.log("Submitting form data:", data); // Log form data for debugging
+      formData.append("file", data.file);
 
       const response = await axiosInstance.post("/examqueries", formData, {
         headers: {

@@ -277,9 +277,6 @@ const LostFoundForm = ({ onSubmit }: Props) => {
                         if (files && files.length > 0) {
                           field.onChange(files[0]);
                         }
-                        // } else {
-                        //   field.onChange(null);
-                        // }
                       }}
                       startContent={
                         <FaUpload
